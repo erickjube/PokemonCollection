@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\enums\\conditioncard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\enums\\conditioncard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\collectionentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\collectionentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConditionCard.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\ENUMs\\ConditionCard.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Domain\\ENUMs\\ConditionCard.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\ENUMs\\ConditionCard.cs",
+              "RelativeToolTip": "PokemonCollection.Domain\\ENUMs\\ConditionCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T19:16:52.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CollectionEntry.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
+              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBoAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T18:14:08.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Card.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\Card.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Card.cs",
+              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Card.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T18:13:55.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pokemon.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Pokemon.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\Pokemon.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Pokemon.cs",
+              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Pokemon.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAcwBgAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T18:13:45.842Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

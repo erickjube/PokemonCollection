@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="PokemonCollection.API/PokemonCollection.API.csproj" />
+  <Project Path="PokemonCollection.Application/PokemonCollection.Application.csproj" Id="4af6e5b7-1539-4563-84f0-a9fc45f6aae7" />
+  <Project Path="PokemonCollection.Domain/PokemonCollection.Domain.csproj" Id="d8559b83-7eee-4275-9680-598dd43ea4f9" />
+  <Project Path="PokemonCollection.Infrastructure/PokemonCollection.Infrastructure.csproj" Id="603ad585-17ff-4c1f-8e98-44a35c34e2f3" />
+</Solution>

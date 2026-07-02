@@ -6,14 +6,17 @@ public class Card
 {
     public int Id { get; private set; }
     public string ExternalId { get; private set; } = string.Empty;
+
     public int PokemonId { get; private set; }
+    public Pokemon Pokemon { get; private set; }
+
     public string Name { get; private set; } = string.Empty;
     public string Rarity { get ; private set; } = string.Empty;
     public string ImageUrl { get; private set; } = string.Empty;
     public string SetName { get; private set; } = string.Empty; // nome da coleção da carta (151, Coroa Estelar, etc...)
     public ICollection<CollectionEntry> CollectionEntries { get; private set; }
 
-    public Card() { }
+    private Card() { }
     public Card(string externalId, int pokemonId, string name, string rarity, string imageUrl, string setName)
     {
         if (string.IsNullOrWhiteSpace(externalId)) throw new ArgumentException("Id externo é obrigatório", nameof(externalId));

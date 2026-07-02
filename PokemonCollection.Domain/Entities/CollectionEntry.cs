@@ -6,9 +6,6 @@ public class CollectionEntry
 {
     public int Id { get; private set; }
 
-    public int PokemonId { get; private set; }
-    public Pokemon Pokemon { get; private set; } = null!;
-
     public int CardId { get; private set; }
     public Card Card { get; private set; } = null!;
 
@@ -17,17 +14,29 @@ public class CollectionEntry
     public ExtraInfoCard Extra { get; private set; } = ExtraInfoCard.Normal;
     public DateTime DateAdded { get; private set; } = DateTime.UtcNow;
 
-    public CollectionEntry() { }
-    public CollectionEntry(int pokemonId, int cardId, ConditionCard condition, LanguageCard language, ExtraInfoCard extra)
+    private CollectionEntry() { }
+    public CollectionEntry(int cardId, ConditionCard condition, LanguageCard language, ExtraInfoCard extra)
     {
-        if (pokemonId <= 0) throw new ArgumentException("PokemonId deve ser obrigatório", nameof(pokemonId));
-        if (cardId <= 0) throw new ArgumentException("CardId deve ser obrigatório", nameof(cardId));
+        if (cardId <= 0) throw new ArgumentException("CardId deve ser positivo", nameof(cardId));
 
-        PokemonId = pokemonId;
         CardId = cardId;
         Condition = condition;
         Language = language;
         Extra = extra;
         DateAdded = DateTime.UtcNow;
+    }
+
+
+    public void UpdateInfo(ConditionCard condition, LanguageCard language, ExtraInfoCard extra)
+    {
+        Condition = condition;
+        Language = language;
+        Extra = extra;
+    }
+
+    public void ChangeCard(int newCardId)
+    {
+        if (newCardId <= 0) throw new ArgumentException("CardId deve ser positivo", nameof(newCardId));
+        CardId = newCardId;
     }
 }

@@ -21,6 +21,7 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
             .IsRequired();
 
         builder.Property(c => c.Rarity)
+            .HasConversion<string>()
             .HasMaxLength(255)
             .IsRequired();
 

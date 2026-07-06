@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\configurations\\collectionentryconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\configurations\\collectionentryconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\collectionentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\collectionentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\configurations\\cardconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\configurations\\cardconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\configurations\\pokemonconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\configurations\\pokemonconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.domain\\entities\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8559B83-7EEE-4275-9680-598DD43EA4F9}|PokemonCollection.Domain\\PokemonCollection.Domain.csproj|solutionrelative:pokemoncollection.domain\\entities\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\dependencyinjection\\infrastructuredependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\dependencyinjection\\infrastructuredependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CollectionEntryConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\CollectionEntryConfiguration.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\Configurations\\CollectionEntryConfiguration.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\CollectionEntryConfiguration.cs",
-              "RelativeToolTip": "PokemonCollection.Infrastructure\\Configurations\\CollectionEntryConfiguration.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T19:31:54.719Z",
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "PokemonCollection.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "PokemonCollection.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-06T17:21:22.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CollectionEntry.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
-              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\Program.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.API\\Program.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\Program.cs",
+              "RelativeToolTip": "PokemonCollection.API\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T19:21:37.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CardConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\CardConfiguration.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\Configurations\\CardConfiguration.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\CardConfiguration.cs",
-              "RelativeToolTip": "PokemonCollection.Infrastructure\\Configurations\\CardConfiguration.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABQAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T19:10:47.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Card.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\Card.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Card.cs",
-              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Card.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T19:10:50.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Pokemon.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Pokemon.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Domain\\Entities\\Pokemon.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\Entities\\Pokemon.cs",
-              "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Pokemon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T18:29:06.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PokemonConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\PokemonConfiguration.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\Configurations\\PokemonConfiguration.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Configurations\\PokemonConfiguration.cs",
-              "RelativeToolTip": "PokemonCollection.Infrastructure\\Configurations\\PokemonConfiguration.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T18:28:10.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "InfrastructureDependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
-              "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
-              "RelativeToolTip": "PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T18:14:17.924Z",
+              "WhenOpened": "2026-07-06T17:15:29.621Z",
               "EditorCaption": ""
             }
           ]

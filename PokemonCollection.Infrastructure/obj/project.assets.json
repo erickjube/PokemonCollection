@@ -1342,6 +1342,22 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "PokemonCollection.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.9",
+          "PokemonCollection.Domain": "1.0.0",
+          "Swashbuckle.AspNetCore": "10.2.3"
+        },
+        "compile": {
+          "bin/placeholder/PokemonCollection.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PokemonCollection.Application.dll": {}
+        }
+      },
       "PokemonCollection.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -4119,6 +4135,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "PokemonCollection.Application/1.0.0": {
+      "type": "project",
+      "path": "../PokemonCollection.Application/PokemonCollection.Application.csproj",
+      "msbuildProject": "../PokemonCollection.Application/PokemonCollection.Application.csproj"
+    },
     "PokemonCollection.Domain/1.0.0": {
       "type": "project",
       "path": "../PokemonCollection.Domain/PokemonCollection.Domain.csproj",
@@ -4131,6 +4152,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.9",
+      "PokemonCollection.Application >= 1.0.0",
       "PokemonCollection.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 10.2.3"
     ]
@@ -4168,6 +4190,9 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\PokemonCollection.Application.csproj": {
+              "projectPath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\PokemonCollection.Application.csproj"
+            },
             "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\PokemonCollection.Domain.csproj": {
               "projectPath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Domain\\PokemonCollection.Domain.csproj"
             }

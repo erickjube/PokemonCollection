@@ -7,7 +7,7 @@ public class Pokemon
     public int Id { get; private set; }
     public int PokedexNumber { get; private set; }
     public string Name { get; private set; } = string.Empty;
-    public Generations Generation { get; private set; } 
+    public Generations Generation { get; private set; } // ok
     public Regions Region { get; private set; } 
     public TypesPokemon PrimaryType { get; private set; } 
     public TypesPokemon? SecondaryType { get; private set; }

@@ -21,7 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PokemonCollection.Application\PokemonCollection.Application.csproj" />
     <ProjectReference Include="..\PokemonCollection.Domain\PokemonCollection.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

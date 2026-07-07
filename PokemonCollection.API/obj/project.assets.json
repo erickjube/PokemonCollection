@@ -1184,6 +1184,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.9",
+          "PokemonCollection.Application": "1.0.0",
           "PokemonCollection.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "10.2.3"
         },

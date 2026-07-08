@@ -3,7 +3,6 @@ using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Domain.ENUMs;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PokemonCollection.Application.Services;
 
@@ -33,6 +32,8 @@ public class PokemonImportService : IPokemonImportService
             var species = await _pokeApiClient.GetSpeciesAsync(details.Name);
             if (species == null) throw new Exception($"Erro ao importar species do pokemon {pokemon.Name}!");
 
+            if (await _pokeRepository.ExistsByPokedexNumberAsync(details.Id)) continue;
+
             var entity = CreatePokemon(details, species);
 
             await _pokeRepository.AddAsync(entity);
@@ -47,7 +48,8 @@ public class PokemonImportService : IPokemonImportService
         var enumRegion = GetRegion(species.Generation.Name);
         var enumGeneration = GetGeneration(species.Generation.Name);
         var enumPrimaryType = GetType(details.Types.First(t => t.Slot == 1).Type.Name);
-        var enumSecundaryType = GetType(details.Types.First(t => t.Slot == 2).Type.Name);
+        var secondaryType = details.Types.FirstOrDefault(t => t.Slot == 2);
+        TypesPokemon? enumSecondaryType = secondaryType == null ? null : GetType(secondaryType.Type.Name);
 
         return new Pokemon(
             pokedexNumber: details.Id,
@@ -55,7 +57,7 @@ public class PokemonImportService : IPokemonImportService
             generation: enumGeneration,
             region: enumRegion,
             primaryType: enumPrimaryType,
-            secondaryType: enumSecundaryType,
+            secondaryType: enumSecondaryType,
             imageUrl: image
          );
     }
@@ -115,7 +117,8 @@ public class PokemonImportService : IPokemonImportService
             "generation-vi" => Regions.Kalos,
             "generation-vii" => Regions.Alola,
             "generation-viii" => Regions.Galar,
-            "generation-ix" => Regions.Paldea
+            "generation-ix" => Regions.Paldea,
+            _ => throw new ArgumentException($"Type '{region}' inválida.")
         };
     }
 }

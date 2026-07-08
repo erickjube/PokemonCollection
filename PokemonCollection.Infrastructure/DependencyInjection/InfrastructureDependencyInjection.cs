@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Infrastructure.Data;
 using PokemonCollection.Infrastructure.ExternalApis;
+using PokemonCollection.Infrastructure.Repositories;
 
 namespace PokemonCollection.Infrastructure.DependencyInjection;
 
@@ -22,6 +24,8 @@ public static class InfrastructureDependencyInjection
         });
 
         services.AddScoped<IPokeApiClient, PokeApiClient>();
+        services.AddScoped<IPokemonRepository, PokemonRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

@@ -17,4 +17,11 @@ public class PokemonRepository : IPokemonRepository
     {
         _context.Pokemons.Add(pokemon);
     }
+
+    public async Task<bool> ExistsByPokedexNumberAsync(int pokedexNumber)
+    {
+        var pokemon = await _context.Pokemons.FindAsync(pokedexNumber);
+        if (pokemon == null) return false;
+        return true;
+    }
 }

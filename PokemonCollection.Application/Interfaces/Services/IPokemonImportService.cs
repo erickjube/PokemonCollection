@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace PokemonCollection.Application.Interfaces.Services;
 
-namespace PokemonCollection.Application.Interfaces.Services
+public interface IPokemonImportService
 {
-    internal interface IPokemonImportService
-    {
-    }
+    Task ImportAsync();
 }

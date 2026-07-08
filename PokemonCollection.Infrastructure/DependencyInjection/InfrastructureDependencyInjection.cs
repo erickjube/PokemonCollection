@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Infrastructure.Data;
 using PokemonCollection.Infrastructure.ExternalApis;
 
@@ -19,6 +20,8 @@ public static class InfrastructureDependencyInjection
         {
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
         });
+
+        services.AddScoped<IPokeApiClient, PokeApiClient>();
 
         return services;
     }

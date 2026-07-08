@@ -6,7 +6,7 @@ public interface IPokeApiClient
 {
     Task<PokemonListResponseDto?> GetAllPokemonAsync(int offset, int limit);
 
-    Task<PokemonResponseDto?> GetPokemonAsync(int id);
+    Task<PokemonResponseDto?> GetPokemonAsync(string name);
 
-    Task<PokemonSpeciesResponseDto?> GetSpeciesAsync(int id);
+    Task<PokemonSpeciesResponseDto?> GetSpeciesAsync(string name);
 }

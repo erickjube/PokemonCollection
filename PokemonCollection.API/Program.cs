@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using PokemonCollection.Application.DependencyInjection;
 using PokemonCollection.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,8 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration)
+                .AddApplication();
 
 var app = builder.Build();
 

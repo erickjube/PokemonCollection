@@ -18,13 +18,13 @@ public class PokeApiClient : IPokeApiClient
         return await _httpClient.GetFromJsonAsync<PokemonListResponseDto>($"pokemon?offset={offset}&limit={limit}");
     }
 
-    public async Task<PokemonResponseDto?> GetPokemonAsync(int id)
+    public async Task<PokemonResponseDto?> GetPokemonAsync(string name)
     {
-        return await _httpClient.GetFromJsonAsync<PokemonResponseDto>($"pokemon/{id}");
+        return await _httpClient.GetFromJsonAsync<PokemonResponseDto>($"pokemon/{name}");
     }
 
-    public async Task<PokemonSpeciesResponseDto?> GetSpeciesAsync(int id)
+    public async Task<PokemonSpeciesResponseDto?> GetSpeciesAsync(string name)
     {
-        return await _httpClient.GetFromJsonAsync<PokemonSpeciesResponseDto>($"pokemon-species/{id}");
+        return await _httpClient.GetFromJsonAsync<PokemonSpeciesResponseDto>($"pokemon-species/{name}");
     }
 }

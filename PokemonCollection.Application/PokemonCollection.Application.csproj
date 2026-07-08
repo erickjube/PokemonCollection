@@ -27,7 +27,6 @@
   <ItemGroup>
     <Folder Include="DTOs\CardsDtos\" />
     <Folder Include="DTOs\CollectionEntryDtos\" />
-    <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
 
 </Project>

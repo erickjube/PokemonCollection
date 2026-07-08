@@ -50,8 +50,7 @@
               "RelativeToolTip": "PokemonCollection.Infrastructure\\Repositories\\PokemonRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-08T18:27:47.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-08T18:27:47.677Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "PokemonCollection.Domain\\ENUMs\\Regions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-08T18:07:08.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-08T18:07:08.704Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "PokemonCollection.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-08T17:23:23.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-08T17:23:23.242Z"
             },
             {
               "$type": "Document",
@@ -87,7 +84,7 @@
               "RelativeDocumentMoniker": "PokemonCollection.Application\\Services\\PokemonImportService.cs",
               "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Services\\PokemonImportService.cs",
               "RelativeToolTip": "PokemonCollection.Application\\Services\\PokemonImportService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-08T17:07:43.699Z",
               "EditorCaption": ""
@@ -102,8 +99,7 @@
               "RelativeToolTip": "PokemonCollection.Infrastructure\\ExternalApis\\PokeApiClient.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T18:55:16.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-07T18:55:16.202Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\Interfaces\\Services\\IPokeApiClient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T18:53:53.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-07T18:53:53.371Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Pokemon.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAwwBYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T18:44:19.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-07T18:44:19.575Z"
             }
           ]
         }

@@ -3,6 +3,7 @@ using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Domain.ENUMs;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PokemonCollection.Application.Services;
 
@@ -32,90 +33,89 @@ public class PokemonImportService : IPokemonImportService
             var species = await _pokeApiClient.GetSpeciesAsync(details.Name);
             if (species == null) throw new Exception($"Erro ao importar species do pokemon {pokemon.Name}!");
 
-            var image = details.Sprites.Other.OfficialArtwork.FrontDefault;
-
-            var enumRegion = species.Generation.Name switch
-            {
-                "generation-i" => Regions.Kanto,
-                "generation-ii" => Regions.Johto,
-                "generation-iii" => Regions.Hoenn,
-                "generation-iv" => Regions.Sinnoh,
-                "generation-v" => Regions.Unova,
-                "generation-vi" => Regions.Kalos,
-                "generation-vii" => Regions.Alola,
-                "generation-viii" => Regions.Galar,
-                "generation-ix" => Regions.Paldea
-            };
-
-            var enumGeneration = species.Generation.Name switch
-            {
-                "generation-i" => Generations.Gen1,
-                "generation-ii" => Generations.Gen2,
-                "generation-iii" => Generations.Gen3,
-                "generation-iv" => Generations.Gen4,
-                "generation-v" => Generations.Gen5,
-                "generation-vi" => Generations.Gen6,
-                "generation-vii" => Generations.Gen7,
-                "generation-viii" => Generations.Gen8,
-                "generation-ix" => Generations.Gen9
-            };
-
-            var enumPrimaryType = details.Types.First(t => t.Slot == 1).Type.Name switch
-            {
-                "normal" => TypesPokemon.Normal,
-                "fire" => TypesPokemon.Fire,
-                "water" => TypesPokemon.Water,
-                "grass" => TypesPokemon.Grass,
-                "flying" => TypesPokemon.Flying,
-                "fighting" => TypesPokemon.Fighting,
-                "poison" => TypesPokemon.Poison,
-                "electric" => TypesPokemon.Electric,
-                "ground" => TypesPokemon.Ground,
-                "rock" => TypesPokemon.Rock,
-                "psychic" => TypesPokemon.Psychic,
-                "ice" => TypesPokemon.Ice,
-                "bug" => TypesPokemon.Bug,
-                "ghost" => TypesPokemon.Ghost,
-                "steel" => TypesPokemon.Steel,
-                "dragon" => TypesPokemon.Dragon,
-                "dark" => TypesPokemon.Dark,
-                "fairy" => TypesPokemon.Fairy
-            };
-
-            var enumSecundaryType = details.Types.First(t => t.Slot == 2).Type.Name switch
-            {
-                "normal" => TypesPokemon.Normal,
-                "fire" => TypesPokemon.Fire,
-                "water" => TypesPokemon.Water,
-                "grass" => TypesPokemon.Grass,
-                "flying" => TypesPokemon.Flying,
-                "fighting" => TypesPokemon.Fighting,
-                "poison" => TypesPokemon.Poison,
-                "electric" => TypesPokemon.Electric,
-                "ground" => TypesPokemon.Ground,
-                "rock" => TypesPokemon.Rock,
-                "psychic" => TypesPokemon.Psychic,
-                "ice" => TypesPokemon.Ice,
-                "bug" => TypesPokemon.Bug,
-                "ghost" => TypesPokemon.Ghost,
-                "steel" => TypesPokemon.Steel,
-                "dragon" => TypesPokemon.Dragon,
-                "dark" => TypesPokemon.Dark,
-                "fairy" => TypesPokemon.Fairy
-            };
-
-            var entity = new Pokemon (
-            pokedexNumber: details.Id,
-            name: details.Name,
-            generation: enumGeneration,
-            region : enumRegion,
-            primaryType: enumPrimaryType,
-            secondaryType: enumSecundaryType,
-            imageUrl: image
-            );
+            var entity = CreatePokemon(details, species);
 
             await _pokeRepository.AddAsync(entity);
         }
+
         await _unitOfWork.SaveChangesAsync();
+    }
+
+    private Pokemon CreatePokemon(PokemonResponseDto details, PokemonSpeciesResponseDto species)
+    {
+        var image = details.Sprites.Other.OfficialArtwork.FrontDefault;
+        var enumRegion = GetRegion(species.Generation.Name);
+        var enumGeneration = GetGeneration(species.Generation.Name);
+        var enumPrimaryType = GetType(details.Types.First(t => t.Slot == 1).Type.Name);
+        var enumSecundaryType = GetType(details.Types.First(t => t.Slot == 2).Type.Name);
+
+        return new Pokemon(
+            pokedexNumber: details.Id,
+            name: details.Name,
+            generation: enumGeneration,
+            region: enumRegion,
+            primaryType: enumPrimaryType,
+            secondaryType: enumSecundaryType,
+            imageUrl: image
+         );
+    }
+
+    private Generations GetGeneration(string generation)
+    {
+        return generation switch
+        {
+            "generation-i" => Generations.Gen1,
+            "generation-ii" => Generations.Gen2,
+            "generation-iii" => Generations.Gen3,
+            "generation-iv" => Generations.Gen4,
+            "generation-v" => Generations.Gen5,
+            "generation-vi" => Generations.Gen6,
+            "generation-vii" => Generations.Gen7,
+            "generation-viii" => Generations.Gen8,
+            "generation-ix" => Generations.Gen9,
+            _ => throw new ArgumentException($"Generation '{generation}' inválida.")
+        };
+    }
+
+    private TypesPokemon GetType(string type)
+    {
+        return type switch
+        {
+            "normal" => TypesPokemon.Normal,
+            "fire" => TypesPokemon.Fire,
+            "water" => TypesPokemon.Water,
+            "grass" => TypesPokemon.Grass,
+            "flying" => TypesPokemon.Flying,
+            "fighting" => TypesPokemon.Fighting,
+            "poison" => TypesPokemon.Poison,
+            "electric" => TypesPokemon.Electric,
+            "ground" => TypesPokemon.Ground,
+            "rock" => TypesPokemon.Rock,
+            "psychic" => TypesPokemon.Psychic,
+            "ice" => TypesPokemon.Ice,
+            "bug" => TypesPokemon.Bug,
+            "ghost" => TypesPokemon.Ghost,
+            "steel" => TypesPokemon.Steel,
+            "dragon" => TypesPokemon.Dragon,
+            "dark" => TypesPokemon.Dark,
+            "fairy" => TypesPokemon.Fairy,
+            _ => throw new ArgumentException($"Type '{type}' inválido.")
+        };
+    }
+
+    private Regions GetRegion(string region)
+    {
+        return region switch
+        {
+            "generation-i" => Regions.Kanto,
+            "generation-ii" => Regions.Johto,
+            "generation-iii" => Regions.Hoenn,
+            "generation-iv" => Regions.Sinnoh,
+            "generation-v" => Regions.Unova,
+            "generation-vi" => Regions.Kalos,
+            "generation-vii" => Regions.Alola,
+            "generation-viii" => Regions.Galar,
+            "generation-ix" => Regions.Paldea
+        };
     }
 }

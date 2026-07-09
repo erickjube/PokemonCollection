@@ -18,12 +18,13 @@ public static class InfrastructureDependencyInjection
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(connection));
 
-        services.AddHttpClient<PokeApiClient>(client =>
+        services.AddScoped<IPokeApiClient, PokeApiClient>();
+
+        services.AddHttpClient<IPokeApiClient, PokeApiClient>(client =>
         {
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
         });
 
-        services.AddScoped<IPokeApiClient, PokeApiClient>();
         services.AddScoped<IPokemonRepository, PokemonRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 

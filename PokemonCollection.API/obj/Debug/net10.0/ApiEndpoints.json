@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.PokemonImportController",
+    "Method": "Import",
+    "RelativePath": "api/PokemonImport",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

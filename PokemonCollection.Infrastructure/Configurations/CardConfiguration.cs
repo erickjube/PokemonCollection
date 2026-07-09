@@ -16,8 +16,15 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
         builder.HasIndex(c => c.ExternalId)
             .IsUnique();
 
+        builder.Property(c => c.PokemonId)
+            .IsRequired(false);
+
         builder.Property(c => c.Name)
             .HasMaxLength(255)
+            .IsRequired();
+
+        builder.Property(c => c.CardNumber)
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(c => c.Rarity)
@@ -31,6 +38,10 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
 
         builder.Property(c => c.SetName)
             .HasMaxLength(255)
+            .IsRequired();
+
+        builder.Property(c => c.SetCode)
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.HasMany(c => c.CollectionEntries)

@@ -19,10 +19,15 @@ public static class InfrastructureDependencyInjection
             options.UseSqlServer(connection));
 
         services.AddScoped<IPokeApiClient, PokeApiClient>();
-
         services.AddHttpClient<IPokeApiClient, PokeApiClient>(client =>
         {
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
+        });
+
+        services.AddScoped<IPokemonTcgClient, PokemonTcgClient>();
+        services.AddHttpClient<IPokemonTcgClient, PokemonTcgClient>(client =>
+        {
+            client.BaseAddress = new Uri("https://api.scrydex.com/pokemon/v1/cards");
         });
 
         services.AddScoped<IPokemonRepository, PokemonRepository>();

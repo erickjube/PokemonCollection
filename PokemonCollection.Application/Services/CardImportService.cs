@@ -1,5 +1,7 @@
-﻿namespace PokemonCollection.Application.Services;
+﻿using PokemonCollection.Application.Interfaces.Services;
 
-public class CardImportService
+namespace PokemonCollection.Application.Services;
+
+public class CardImportService : ICardImportService
 {
 }

@@ -9,4 +9,6 @@ public class PokemonResponseDto
     public List<PokemonTypeDto> Types { get; set; } = [];
 
     public SpritesDto Sprites { get; set; } = null!;
+    public NamedApiResourceDto Species { get; set; } = null!;
+
 }

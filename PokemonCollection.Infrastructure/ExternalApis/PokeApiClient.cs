@@ -27,4 +27,9 @@ public class PokeApiClient : IPokeApiClient
     {
         return await _httpClient.GetFromJsonAsync<PokemonSpeciesResponseDto>($"pokemon-species/{name}");
     }
+
+    public async Task<PokemonSpeciesResponseDto?> GetSpeciesByUrlAsync(string url)
+    {
+        return await _httpClient.GetFromJsonAsync<PokemonSpeciesResponseDto>(url);
+    }
 }

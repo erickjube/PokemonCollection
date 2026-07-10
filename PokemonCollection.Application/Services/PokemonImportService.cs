@@ -29,7 +29,8 @@ public class PokemonImportService : IPokemonImportService
             var details = await _pokeApiClient.GetPokemonAsync(pokemon.Name);
             if (details == null) throw new Exception($"Erro ao importar o pokemon {pokemon.Name}!");
 
-            var species = await _pokeApiClient.GetSpeciesAsync(details.Name);
+            var species = await _pokeApiClient.GetSpeciesByUrlAsync(details.Species.Url);
+
             if (species == null) throw new Exception($"Erro ao importar species do pokemon {pokemon.Name}!");
 
             if (await _pokeRepository.ExistsByPokedexNumberAsync(details.Id)) continue;

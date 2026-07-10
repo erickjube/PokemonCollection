@@ -21,7 +21,7 @@ public class PokemonImportService : IPokemonImportService
 
     public async Task ImportAsync()
     {
-        var list = await _pokeApiClient.GetAllPokemonAsync(0, 151);
+        var list = await _pokeApiClient.GetAllPokemonAsync(0, 1025);
         if (list == null) throw new Exception("Erro ao importar pokemons!");
 
         foreach (var pokemon in list.Results)

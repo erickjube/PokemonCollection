@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/CardImport": {
+      "post": {
+        "tags": [
+          "CardImport"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/PokemonImport": {
       "post": {
         "tags": [
@@ -20,6 +32,9 @@
   },
   "components": { },
   "tags": [
+    {
+      "name": "CardImport"
+    },
     {
       "name": "PokemonImport"
     }

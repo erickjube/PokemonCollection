@@ -1,6 +1,7 @@
 ﻿using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace PokemonCollection.Infrastructure.Repositories;
 
@@ -20,8 +21,7 @@ public class CardRepository : ICardRepository
 
     public async Task<bool> ExistsByExternalIdAsync(string externalId)
     {
-        var card = await _context.Cards.FindAsync(externalId);
-        if (card == null) return false;
-        return true;
+        var card = await _context.Cards.FirstOrDefaultAsync(c => c.ExternalId == externalId);
+        return card != null;
     }
 }

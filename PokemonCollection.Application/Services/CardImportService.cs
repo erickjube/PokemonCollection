@@ -28,7 +28,7 @@ public class CardImportService : ICardImportService
     {
         var pokemonDictionary = (await _pokemonRepository.GetAllAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
         int page = 1;
-        const int pageSize = 250;
+        const int pageSize = 100;
 
         while (true)
         {
@@ -57,9 +57,7 @@ public class CardImportService : ICardImportService
 
     private RarityCard GetRarity(string rarity)
     {
-        rarity = rarity.Trim();
-
-        return rarity switch
+        return rarity?.Trim() switch
         {
             "Common" => RarityCard.Common,
             "Uncommon" => RarityCard.Uncommon,

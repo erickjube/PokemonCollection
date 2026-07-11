@@ -2,4 +2,5 @@
 
 public interface ICardImportService
 {
+    Task ImportAsync();
 }

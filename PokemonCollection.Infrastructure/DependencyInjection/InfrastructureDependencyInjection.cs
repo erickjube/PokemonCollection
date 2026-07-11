@@ -27,7 +27,9 @@ public static class InfrastructureDependencyInjection
         services.AddScoped<IPokemonTcgClient, PokemonTcgClient>();
         services.AddHttpClient<IPokemonTcgClient, PokemonTcgClient>(client =>
         {
-            client.BaseAddress = new Uri("https://api.scrydex.com/pokemon/v1/cards");
+            client.BaseAddress = new Uri("https://api.pokemontcg.io/v2/");
+
+            client.DefaultRequestHeaders.Add("X-Api-Key", config["PokemonTcg:ApiKey"]);
         });
 
         services.AddScoped<IPokemonRepository, PokemonRepository>();

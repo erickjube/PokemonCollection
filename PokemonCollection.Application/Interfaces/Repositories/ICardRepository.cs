@@ -6,4 +6,5 @@ public interface ICardRepository
 {
     Task AddRangeAsync(IEnumerable<Card> cards);
     Task<bool> ExistsByExternalIdAsync(string externalId);
+    Task<HashSet<string>> GetAllExternalIdsAsync();
 }

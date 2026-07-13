@@ -24,4 +24,9 @@ public class CardRepository : ICardRepository
         var card = await _context.Cards.FirstOrDefaultAsync(c => c.ExternalId == externalId);
         return card != null;
     }
+
+    public async Task<HashSet<string>> GetAllExternalIdsAsync()
+    {
+        return await _context.Cards.Select(c => c.ExternalId).ToHashSetAsync();
+    }
 }

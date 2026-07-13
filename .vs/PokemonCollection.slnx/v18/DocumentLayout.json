@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\controllers\\cardimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\controllers\\cardimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.application\\services\\cardimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|solutionrelative:pokemoncollection.application\\services\\cardimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\externalapis\\pokemontcgclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\externalapis\\pokemontcgclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.application\\services\\cardimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|solutionrelative:pokemoncollection.application\\services\\cardimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\controllers\\cardimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\controllers\\cardimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\controllers\\pokemonimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\controllers\\pokemonimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.application\\dtos\\cardsdtos\\cardlistresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|solutionrelative:pokemoncollection.application\\dtos\\cardsdtos\\cardlistresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\repositories\\cardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\repositories\\cardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.application\\interfaces\\repositories\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|solutionrelative:pokemoncollection.application\\interfaces\\repositories\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{865D6BE0-2086-CB37-0F20-6F894A766A1C}|PokemonCollection.API\\PokemonCollection.API.csproj|solutionrelative:pokemoncollection.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4AF6E5B7-1539-4563-84F0-A9FC45F6AAE7}|PokemonCollection.Application\\PokemonCollection.Application.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.application\\interfaces\\services\\icardimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\dependencyinjection\\infrastructuredependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\dependencyinjection\\infrastructuredependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|c:\\users\\erick\\documents\\00faculdade\\estudos\\c#\\0 - projetos\\pokemoncollection\\pokemoncollection.infrastructure\\repositories\\cardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{603AD585-17FF-4C1F-8E98-44A35C34E2F3}|PokemonCollection.Infrastructure\\PokemonCollection.Infrastructure.csproj|solutionrelative:pokemoncollection.infrastructure\\repositories\\cardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,19 +50,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "PokemonCollection.API\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\appsettings.Development.json",
-              "RelativeToolTip": "PokemonCollection.API\\appsettings.Development.json",
+              "DocumentIndex": 4,
+              "Title": "CardListResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\DTOs\\CardsDtos\\CardListResponseDto.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Application\\DTOs\\CardsDtos\\CardListResponseDto.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\DTOs\\CardsDtos\\CardListResponseDto.cs",
+              "RelativeToolTip": "PokemonCollection.Application\\DTOs\\CardsDtos\\CardListResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T17:38:20.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICardRepository.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Interfaces\\Repositories\\ICardRepository.cs",
+              "RelativeDocumentMoniker": "PokemonCollection.Application\\Interfaces\\Repositories\\ICardRepository.cs",
+              "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Interfaces\\Repositories\\ICardRepository.cs",
+              "RelativeToolTip": "PokemonCollection.Application\\Interfaces\\Repositories\\ICardRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-11T01:52:23.229Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T17:14:20.317Z",
               "EditorCaption": ""
             },
             {
@@ -76,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "PokemonImportController.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\Controllers\\PokemonImportController.cs",
               "RelativeDocumentMoniker": "PokemonCollection.API\\Controllers\\PokemonImportController.cs",
@@ -84,36 +101,38 @@
               "RelativeToolTip": "PokemonCollection.API\\Controllers\\PokemonImportController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T19:02:44.787Z"
+              "WhenOpened": "2026-07-10T19:02:44.787Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PokemonTcgClient.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\ExternalApis\\PokemonTcgClient.cs",
               "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\ExternalApis\\PokemonTcgClient.cs",
               "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\ExternalApis\\PokemonTcgClient.cs",
               "RelativeToolTip": "PokemonCollection.Infrastructure\\ExternalApis\\PokemonTcgClient.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAzwBEAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-10T19:02:03.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CardImportService.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Services\\CardImportService.cs",
               "RelativeDocumentMoniker": "PokemonCollection.Application\\Services\\CardImportService.cs",
               "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Services\\CardImportService.cs",
               "RelativeToolTip": "PokemonCollection.Application\\Services\\CardImportService.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAkwDsAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T19:02:26.75Z"
+              "WhenOpened": "2026-07-10T19:02:26.75Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "InfrastructureDependencyInjection.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
               "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\DependencyInjection\\InfrastructureDependencyInjection.cs",
@@ -125,19 +144,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "CardRepository.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
               "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
               "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
               "RelativeToolTip": "PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA3wBcAAABdAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAcwBIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T19:24:50.139Z"
+              "WhenOpened": "2026-07-10T19:24:50.139Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.API\\appsettings.json",
               "RelativeDocumentMoniker": "PokemonCollection.API\\appsettings.json",
@@ -145,12 +165,11 @@
               "RelativeToolTip": "PokemonCollection.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-10T19:19:42.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T19:19:42.635Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ICardImportService.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\Interfaces\\Services\\ICardImportService.cs",
               "RelativeDocumentMoniker": "PokemonCollection.Application\\Interfaces\\Services\\ICardImportService.cs",

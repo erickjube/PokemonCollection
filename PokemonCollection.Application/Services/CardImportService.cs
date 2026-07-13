@@ -28,29 +28,55 @@ public class CardImportService : ICardImportService
     {
         var pokemonDictionary = (await _pokemonRepository.GetAllAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
         int page = 1;
-        const int pageSize = 100;
+        const int pageSize = 50;
+        const int maxRetries = 3;
+        var existingIds = await _cardRepository.GetAllExternalIdsAsync();
+        var totalPages = int.MaxValue;
 
-        while (true)
+        while (page <= totalPages)
         {
-            var response = await _pokemonTcg.GetCardsAsync(page, pageSize);
+            CardListResponseDto? response = null;
+            for (int attempt = 1; attempt <= maxRetries; attempt++)
+            {
+                try
+                {
+                    Console.WriteLine($"Importando página {page}...");
+                    response = await _pokemonTcg.GetCardsAsync(page, pageSize);
+                    break;
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine($"Erro na página {page}. Tentativa {attempt}/{maxRetries}");
+                    if (attempt == maxRetries) throw;
+                    await Task.Delay(5000);
+                }
+            }
+
+            
             if (response == null || response.Data.Count == 0) break;
 
-            var cards = new List<Card>();
+            totalPages = (int)Math.Ceiling((double)response.TotalCount / pageSize);
 
+            var cards = new List<Card>();
+            
             foreach (var cardDto in response.Data)
             {
-                if (await _cardRepository.ExistsByExternalIdAsync(cardDto.Id)) continue;
+                if (existingIds.Contains(cardDto.Id)) continue;
 
                 var pokedexNumber = cardDto.NationalPokedexNumbers?.FirstOrDefault();
                 if (pokedexNumber == null) continue;
 
                 if (!pokemonDictionary.TryGetValue(pokedexNumber.Value, out var pokemonId)) continue;
 
-                cards.Add(CreateCard(cardDto, pokemonId));
+
+                var newCard = CreateCard(cardDto, pokemonId);
+                cards.Add(newCard);
+                existingIds.Add(newCard.ExternalId);
             }
 
             await _cardRepository.AddRangeAsync(cards);
             await _unitOfWork.SaveChangesAsync();
+            await Task.Delay(500);
             page++;
         }
     }

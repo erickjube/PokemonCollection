@@ -34,6 +34,7 @@ public static class InfrastructureDependencyInjection
 
         services.AddScoped<IPokemonRepository, PokemonRepository>();
         services.AddScoped<ICardRepository, CardRepository>();
+        services.AddScoped<IImportStateRepository, ImportStateRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;

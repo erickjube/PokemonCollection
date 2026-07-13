@@ -10,6 +10,7 @@ public class AppDbContext : DbContext
     public DbSet<Pokemon> Pokemons { get; set; }
     public DbSet<Card> Cards { get; set; }
     public DbSet<CollectionEntry> CollectionEntries { get; set; }
+    public DbSet<ImportState> ImportStates { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -12,22 +12,33 @@ public class CardImportService : ICardImportService
     private readonly IPokemonTcgClient _pokemonTcg;
     private readonly ICardRepository _cardRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IImportStateRepository _importStateRepository;
 
     public CardImportService(IPokemonRepository pokemonRepository,
                              IPokemonTcgClient pokemonTcg,
                              ICardRepository cardRepository,
-                             IUnitOfWork unitOfWork)
+                             IUnitOfWork unitOfWork,
+                             IImportStateRepository importStateRepository)
     {
         _pokemonRepository = pokemonRepository;
         _pokemonTcg = pokemonTcg;
         _cardRepository = cardRepository;
         _unitOfWork = unitOfWork;
+        _importStateRepository = importStateRepository;
     }
 
     public async Task ImportAsync()
     {
+        var state = await _importStateRepository.GetAsync();
+        if (state == null)
+        {
+            state = new ImportState(110);
+            await _importStateRepository.AddAsync(state);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
         var pokemonDictionary = (await _pokemonRepository.GetAllAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
-        int page = 1;
+        int page = state.LastImportedPage + 1;
         const int pageSize = 50;
         const int maxRetries = 3;
         var existingIds = await _cardRepository.GetAllExternalIdsAsync();
@@ -52,7 +63,6 @@ public class CardImportService : ICardImportService
                 }
             }
 
-            
             if (response == null || response.Data.Count == 0) break;
 
             totalPages = (int)Math.Ceiling((double)response.TotalCount / pageSize);
@@ -75,6 +85,7 @@ public class CardImportService : ICardImportService
             }
 
             await _cardRepository.AddRangeAsync(cards);
+            state.Update(page);
             await _unitOfWork.SaveChangesAsync();
             await Task.Delay(500);
             page++;

@@ -6,6 +6,9 @@ public class CollectionEntry
 {
     public int Id { get; private set; }
 
+    public int PokemonId { get; set; }
+    public Pokemon Pokemon { get; set; }
+
     public int CardId { get; private set; }
     public Card Card { get; private set; } = null!;
 
@@ -15,11 +18,13 @@ public class CollectionEntry
     public DateTime DateAdded { get; private set; } = DateTime.UtcNow;
 
     private CollectionEntry() { }
-    public CollectionEntry(int cardId, ConditionCard condition, LanguageCard language, ExtraInfoCard extra)
+    public CollectionEntry(int cardId, int pokemonId, ConditionCard condition, LanguageCard language, ExtraInfoCard extra)
     {
         if (cardId <= 0) throw new ArgumentException("CardId deve ser positivo", nameof(cardId));
+        if (pokemonId <= 0) throw new ArgumentException("PokemonId deve ser positivo", nameof(pokemonId));
 
         CardId = cardId;
+        PokemonId = pokemonId;
         Condition = condition;
         Language = language;
         Extra = extra;

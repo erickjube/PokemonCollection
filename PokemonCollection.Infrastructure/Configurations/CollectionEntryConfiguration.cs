@@ -13,6 +13,9 @@ public class CollectionEntryConfiguration : IEntityTypeConfiguration<CollectionE
         builder.HasIndex(ce => ce.CardId)
             .IsUnique();
 
+        builder.HasIndex(ce => ce.PokemonId)
+            .IsUnique();
+
         builder.Property(ce => ce.Condition)
             .HasConversion<string>()
             .HasMaxLength(50)

@@ -49,5 +49,10 @@ public class PokemonConfiguration : IEntityTypeConfiguration<Pokemon>
             .WithOne(c => c.Pokemon)
             .HasForeignKey(c => c.PokemonId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasMany(c => c.CollectionEntries)
+            .WithOne(ce => ce.Pokemon)
+            .HasForeignKey(ce => ce.PokemonId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

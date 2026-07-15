@@ -109,9 +109,15 @@ namespace PokemonCollection.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CardId")
+                        .IsUnique();
+
+                    b.HasIndex("PokemonId")
                         .IsUnique();
 
                     b.ToTable("CollectionEntries");
@@ -205,7 +211,15 @@ namespace PokemonCollection.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("PokemonCollection.Domain.Entities.Pokemon", "Pokemon")
+                        .WithMany("CollectionEntries")
+                        .HasForeignKey("PokemonId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Card");
+
+                    b.Navigation("Pokemon");
                 });
 
             modelBuilder.Entity("PokemonCollection.Domain.Entities.Card", b =>
@@ -216,6 +230,8 @@ namespace PokemonCollection.Infrastructure.Migrations
             modelBuilder.Entity("PokemonCollection.Domain.Entities.Pokemon", b =>
                 {
                     b.Navigation("Cards");
+
+                    b.Navigation("CollectionEntries");
                 });
 #pragma warning restore 612, 618
         }

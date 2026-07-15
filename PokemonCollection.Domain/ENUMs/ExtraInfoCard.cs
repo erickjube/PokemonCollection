@@ -6,5 +6,6 @@ public enum ExtraInfoCard
     ReverseFoil = 2,
     Foil = 3,
     PokeBall = 4,
-    MasterBall = 5
+    MasterBall = 5,
+    Promo = 6
 }

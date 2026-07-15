@@ -242,10 +242,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "collectionId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "cardId": {
             "type": "integer",
             "format": "int32"

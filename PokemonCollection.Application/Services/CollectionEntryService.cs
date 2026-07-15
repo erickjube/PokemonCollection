@@ -10,11 +10,15 @@ public class CollectionEntryService : ICollectionEntryService
 {
     private readonly ICollectionRepository _collectionRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ICardRepository _cardRepository;
 
-    public CollectionEntryService(ICollectionRepository collectionRepository, IUnitOfWork unitOfWork)
+    public CollectionEntryService(ICollectionRepository collectionRepository, 
+                                  IUnitOfWork unitOfWork, 
+                                  ICardRepository cardRepository)
     {
         _collectionRepository = collectionRepository;
         _unitOfWork = unitOfWork;
+        _cardRepository = cardRepository;
     }
 
     public async Task<IEnumerable<CollectionCardResponseDto>> GetCollectionAsync()
@@ -58,6 +62,11 @@ public class CollectionEntryService : ICollectionEntryService
     public async Task SelectCardAsync(int pokemonId, CollectionCardRequestDto dto)
     {
         var entry = await _collectionRepository.GetByPokemonIdAsync(pokemonId);
+        var card = await _cardRepository.GetById(dto.CardId);
+        if (card == null) throw new ArgumentException("Carta não encontrada!");
+
+        if (pokemonId != card.PokemonId) throw new ArgumentException("Pokemon passado diferente do pokemon da carta");
+
         var enumCondition = ParseEnum<ConditionCard>(dto.Condition);
         var enumLanguage = ParseEnum<LanguageCard>(dto.Language);
         var enumExtra = ParseEnum<ExtraInfoCard>(dto.Extra);
@@ -82,18 +91,30 @@ public class CollectionEntryService : ICollectionEntryService
         if (entry is null)
             throw new ArgumentException("Carta não encontrada.");
 
-        var enumCondition = ParseEnum<ConditionCard>(dto.Condition);
-        var enumLanguage = ParseEnum<LanguageCard>(dto.Language);
-        var enumExtra = ParseEnum<ExtraInfoCard>(dto.Extra);
+        if (dto.Condition is not null)
+        {
+            var condition = ParseEnum<ConditionCard>(dto.Condition);
+            entry.ChangeCondition(condition);
+        }
 
-        entry.UpdateInfo(enumCondition, enumLanguage, enumExtra);
+        if (dto.Language is not null)
+        {
+            var language = ParseEnum<LanguageCard>(dto.Language);
+            entry.ChangeLanguage(language);
+        }
+
+        if (dto.Extra is not null)
+        {
+            var extra = ParseEnum<ExtraInfoCard>(dto.Extra);
+            entry.ChangeExtra(extra);
+        }
 
         await _unitOfWork.SaveChangesAsync();
     }
 
-    public async Task DeleteCardAsync(int pokemonId)
+    public async Task DeleteCardAsync(int collectionId)
     {
-        var entry = await _collectionRepository.GetByPokemonIdAsync(pokemonId);
+        var entry = await _collectionRepository.GetByIdAsync(collectionId);
         if (entry is null) throw new ArgumentException("Carta não encontrada.");
 
         await _collectionRepository.DeleteAsync(entry);

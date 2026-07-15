@@ -14,6 +14,11 @@ public class CardRepository : ICardRepository
         _context = context;
     }
 
+    public async Task<Card?> GetById(int cardId)
+    {
+        return await _context.Cards.FindAsync(cardId);
+    }
+
     public async Task AddRangeAsync(IEnumerable<Card> cards)
     {
         await _context.Cards.AddRangeAsync(cards);

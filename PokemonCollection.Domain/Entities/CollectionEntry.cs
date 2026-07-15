@@ -38,6 +38,23 @@ public class CollectionEntry
         Language = language;
         Extra = extra;
     }
+    
+    public void ChangeCondition(ConditionCard condition)
+    {
+        Condition = condition;
+    }
+
+    public void ChangeLanguage(LanguageCard language)
+    {
+        Language = language;
+    }
+
+    public void ChangeExtra(ExtraInfoCard extra)
+    {
+        Extra = extra;
+    }
+
+
 
     public void ChangeCard(int newCardId)
     {

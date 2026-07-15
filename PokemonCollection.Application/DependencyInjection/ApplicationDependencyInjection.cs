@@ -10,6 +10,7 @@ public static class ApplicationDependencyInjection
     {
         services.AddScoped<IPokemonImportService, PokemonImportService>();
         services.AddScoped<ICardImportService, CardImportService>();
+        services.AddScoped<ICollectionEntryService, CollectionEntryService>();
 
         return services;
     }

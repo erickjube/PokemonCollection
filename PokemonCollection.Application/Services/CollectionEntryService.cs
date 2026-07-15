@@ -88,6 +88,15 @@ public class CollectionEntryService : ICollectionEntryService
         await _unitOfWork.SaveChangesAsync();
     }
 
+    public async Task DeleteCardAsync(int pokemonId)
+    {
+        var entry = await _collectionRepository.GetByPokemonIdAsync(pokemonId);
+        if (entry is null) throw new ArgumentException("Carta não encontrada.");
+
+        await _collectionRepository.DeleteAsync(entry);
+        await _unitOfWork.SaveChangesAsync();
+    }
+
     private static T ParseEnum<T>(string value) where T : struct, Enum
     {
         if (Enum.TryParse<T>(value, true, out var result))

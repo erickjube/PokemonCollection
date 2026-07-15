@@ -8,4 +8,5 @@ public interface ICollectionRepository
     Task<CollectionEntry?> GetByIdAsync(int collectionEntryId);
     Task<CollectionEntry?> GetByPokemonIdAsync(int pokemonId);
     Task AddAsync(CollectionEntry? entry);
+    Task DeleteAsync(CollectionEntry entry);
 }

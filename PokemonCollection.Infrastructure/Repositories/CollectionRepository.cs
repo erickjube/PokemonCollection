@@ -40,4 +40,9 @@ public class CollectionRepository : ICollectionRepository
     {
         await _context.CollectionEntries.AddAsync(entry);
     }
+
+    public async Task DeleteAsync(CollectionEntry entry)
+    {
+        _context.CollectionEntries.Remove(entry);
+    }
 }

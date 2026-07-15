@@ -166,3 +166,4 @@ C:\Users\erick\Documents\00Faculdade\Estudos\C#\0 - Projetos\PokemonCollection\P
 C:\Users\erick\Documents\00Faculdade\Estudos\C#\0 - Projetos\PokemonCollection\PokemonCollection.API\obj\Debug\net10.0\PokemonCollection.API.genruntimeconfig.cache
 C:\Users\erick\Documents\00Faculdade\Estudos\C#\0 - Projetos\PokemonCollection\PokemonCollection.API\obj\Debug\net10.0\ref\PokemonCollection.API.dll
 C:\Users\erick\Documents\00Faculdade\Estudos\C#\0 - Projetos\PokemonCollection\PokemonCollection.API\obj\Debug\net10.0\PokemonCollection.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\erick\Documents\00Faculdade\Estudos\C#\0 - Projetos\PokemonCollection\PokemonCollection.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

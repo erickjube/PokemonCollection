@@ -10,6 +10,110 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "GetAll",
+    "RelativePath": "api/CollectionEntry",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardResponseDto, PokemonCollection.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "GetById",
+    "RelativePath": "api/CollectionEntry/{collectionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "collectionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "UpdateInfo",
+    "RelativePath": "api/CollectionEntry/{collectionId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "collectionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardUpdateRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "Delete",
+    "RelativePath": "api/CollectionEntry/{collectionId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "collectionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "AddCardToCollection",
+    "RelativePath": "api/CollectionEntry/{pokemonId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pokemonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PokemonCollection.API.Controllers.PokemonImportController",
     "Method": "Import",
     "RelativePath": "api/PokemonImport",

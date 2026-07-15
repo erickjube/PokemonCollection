@@ -3,7 +3,6 @@
 public class CollectionCardResponseDto
 {
     public int Id { get; set; }
-    public int CollectionId { get; set; }
     public int CardId { get; set; }
     public string CardName { get; set; }
     public string PokemonName { get; set; }

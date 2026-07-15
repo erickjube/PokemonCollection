@@ -13,6 +13,8 @@ public class Pokemon
     public TypesPokemon? SecondaryType { get; private set; }
     public string ImageUrl { get; private set; } = string.Empty;
     public ICollection<Card> Cards { get; private set; } = new List<Card>();
+    public ICollection<CollectionEntry> CollectionEntries { get; private set; } = new List<CollectionEntry>();
+    
 
     private Pokemon() { }
     public Pokemon(int pokedexNumber, 

@@ -1,0 +1,15 @@
+.pokemon-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: .2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+.pokemon-card img {
+    width: 120px;
+}

@@ -1,0 +1,70 @@
+.home {
+    margin: 20px;
+}
+
+.search-section {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-section input {
+    width: 900px;
+    padding: 10px;
+    border-radius: 18px;
+    border: 2px solid #ccc;
+}
+
+.search-section button {
+    width: 80px;
+    padding: 10px 18px;
+    border-radius: 18px;
+    border: 2px solid #ccc;
+    transition: 0.2s;    
+}
+
+.search-section button:hover {
+    background-color: #c90808;
+    color: white;
+    border: 2px solid #c90808;
+}
+
+.search-section select {
+    padding: 8px;
+    border-radius: 18px;
+    border: 2px solid #ccc;
+    transition: 0.2s;
+}
+
+.search-section select:hover {
+    background-color: #c90808;
+    color: white;
+    border: 2px solid #c90808;
+}
+
+.filters {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.filters select {
+    padding: 8px;
+    border-radius: 18px;
+    border: 2px solid #ccc;
+    transition: 0.2s;
+}
+
+.filters select:hover {
+    background-color: #c90808;
+    color: white;
+    border: 2px solid #c90808;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}

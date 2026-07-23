@@ -1,17 +1,13 @@
 import "./PokemonCard.css";
 
-function PokemonCard() {
+function PokemonCard({ pokemon }) {
     return (
+        
         <div className="pokemon-card">
 
-            <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-                alt="Pikachu"
-            />
-
-            <h2>Pikachu</h2>
-
-            <p>#025</p>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
+            <h2>{pokemon.nome}</h2>
+            <p>#{pokemon.id}</p>
 
         </div>
     );

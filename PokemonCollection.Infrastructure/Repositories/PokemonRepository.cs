@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PokemonCollection.Application.Interfaces.Repositories;
+using PokemonCollection.Domain.Common;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Infrastructure.Data;
 
@@ -14,7 +15,14 @@ public class PokemonRepository : IPokemonRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Pokemon>> GetAllAsync()
+    public async Task<PagedList<Pokemon>> GetAllAsync(int skip, int take)
+    {
+        var totalCont = await _context.Pokemons.CountAsync();
+        var data = await _context.Pokemons.Skip(skip).Take(take).ToListAsync();
+        return new PagedList<Pokemon> { Data = data, TotalCount = totalCont };
+    }
+
+    public async Task<IEnumerable<Pokemon>> GetAllForImportAsync()
     {
         return await _context.Pokemons.ToListAsync();
     }

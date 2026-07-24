@@ -13,7 +13,7 @@ public class CardService : ICardService
          _cardRepository = cardRepository;
     }
 
-    public async Task<IEnumerable<CardResponseDto>> GetByPokemonIdAsync(int pokemonId)
+    public async Task<IEnumerable<CardResponseDto>> GetByPokemonIdAsync(int pokemonId)  //paginar
     {
         var cards = await _cardRepository.GetByPokemonIdAsync(pokemonId);
 

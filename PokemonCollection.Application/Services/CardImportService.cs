@@ -37,7 +37,7 @@ public class CardImportService : ICardImportService
             await _unitOfWork.SaveChangesAsync();
         }
 
-        var pokemonDictionary = (await _pokemonRepository.GetAllAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
+        var pokemonDictionary = (await _pokemonRepository.GetAllForImportAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
         int page = state.LastImportedPage + 1;
         const int pageSize = 50;
         const int maxRetries = 3;

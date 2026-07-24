@@ -1,6 +1,9 @@
 ﻿using PokemonCollection.Application.DTOs.PokemonsDtos;
+using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
+using PokemonCollection.Application.Pagination;
+using PokemonCollection.Domain.Common;
 
 namespace PokemonCollection.Application.Services;
 
@@ -13,11 +16,15 @@ public class PokemonService : IPokemonService
         _pokemonRepository = pokemonRepository;
     }
 
-    public async Task<IEnumerable<PokemonResponseDto>> GetAllAsync()
+    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters)  //paginar
     {
-        var pokemons = await _pokemonRepository.GetAllAsync();
+        var skip = (parameters.PageNumber - 1) * parameters.PageSize;
+        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize);
+        if (result == null) throw new ArgumentException("Erro ao buscar Categorias.");
+        ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
-        return pokemons.Select(p => new PokemonResponseDto
+
+        var dtos = result.Data.Select(p => new PokemonResponseDto
         {
             Id = p.Id,
             Name = p.Name,
@@ -27,6 +34,23 @@ public class PokemonService : IPokemonService
             SecondaryType = p.SecondaryType.ToString(),
             ImageUrl = p.ImageUrl,
         });
+
+        return new PagedList<PokemonResponseDto>
+        {
+            Data = result.Data.Select(p => new PokemonResponseDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Generation = p.Generation.ToString(),
+                Region = p.Region.ToString(),
+                PrimaryType = p.PrimaryType.ToString(),
+                SecondaryType = p.SecondaryType.ToString(),
+                ImageUrl = p.ImageUrl,
+            }),
+            TotalCount = result.TotalCount,
+            PageNumber = parameters.PageNumber,
+            PageSize = parameters.PageSize
+        };
     }
 
     public async Task<PokemonResponseDto> GetByIdAsync(int pokemonId)

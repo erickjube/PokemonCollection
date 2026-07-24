@@ -21,7 +21,7 @@ public class CollectionEntryService : ICollectionEntryService
         _cardRepository = cardRepository;
     }
 
-    public async Task<IEnumerable<CollectionCardResponseDto>> GetCollectionAsync()
+    public async Task<IEnumerable<CollectionCardResponseDto>> GetCollectionAsync()  //paginar
     {
         var collections = await _collectionRepository.GetAllAsync();
 

@@ -14,6 +14,13 @@ public class CardRepository : ICardRepository
         _context = context;
     }
 
+    public async Task<IEnumerable<Card>> GetByPokemonIdAsync(int pokemonId)
+    {
+        return await _context.Cards.Where(c => c.PokemonId == pokemonId).ToListAsync();
+    }
+
+
+
     public async Task<Card?> GetById(int cardId)
     {
         return await _context.Cards.FindAsync(cardId);

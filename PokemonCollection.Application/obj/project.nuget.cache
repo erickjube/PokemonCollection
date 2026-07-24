@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l765cPjMUV4=",
+  "dgSpecHash": "Gp02GnUJE78=",
   "success": true,
-  "projectFilePath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\C#\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\PokemonCollection.Application.csproj",
+  "projectFilePath": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\CSharp\\0 - Projetos\\PokemonCollection\\PokemonCollection.Application\\PokemonCollection.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erick\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\erick\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

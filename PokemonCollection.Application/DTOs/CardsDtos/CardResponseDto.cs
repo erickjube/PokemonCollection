@@ -1,12 +1,13 @@
-﻿namespace PokemonCollection.Application.DTOs.CardsDtos;
+﻿using PokemonCollection.Domain.ENUMs;
+
+namespace PokemonCollection.Application.DTOs.CardsDtos;
 
 public class CardResponseDto
 {
-    public string Id { get; set; } = string.Empty;
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public string Number { get; set; } = string.Empty;
-    public List<int>? NationalPokedexNumbers { get; set; }
-    public string? Rarity { get; set; }
-    public CardImageDto Images { get; set; } = null!;
-    public CardSetDto Set { get; set; } = null!;
+    public string CardNumber { get; set; } = string.Empty;
+    public string Rarity { get; set; } = string.Empty;
+    public string ImageUrl { get; set; } = string.Empty;
+    public string SetName { get; set; } = string.Empty; 
 }

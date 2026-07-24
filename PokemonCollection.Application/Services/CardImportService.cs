@@ -123,7 +123,7 @@ public class CardImportService : ICardImportService
         };
     }
 
-    private Card CreateCard(CardResponseDto dto, int? pokemonId)
+    private Card CreateCard(CardImportResponseDto dto, int? pokemonId)
     {
         return new Card(
             externalId: dto.Id,

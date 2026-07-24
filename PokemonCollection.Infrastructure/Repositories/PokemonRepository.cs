@@ -19,6 +19,11 @@ public class PokemonRepository : IPokemonRepository
         return await _context.Pokemons.ToListAsync();
     }
 
+    public async Task<Pokemon?> GetByIdAsync(int pokemonId)
+    {
+        return await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == pokemonId);
+    }
+
     public async Task AddAsync(Pokemon pokemon)
     {
         _context.Pokemons.Add(pokemon);

@@ -12,6 +12,7 @@ public static class ApplicationDependencyInjection
         services.AddScoped<ICardImportService, CardImportService>();
         services.AddScoped<ICollectionEntryService, CollectionEntryService>();
         services.AddScoped<ICardService, CardService>();
+        services.AddScoped<IPokemonService, PokemonService>();
 
         return services;
     }

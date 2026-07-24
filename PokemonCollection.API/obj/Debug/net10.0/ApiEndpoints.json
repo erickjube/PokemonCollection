@@ -166,6 +166,52 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PokemonCollection.API.Controllers.PokemonController",
+    "Method": "GetAll",
+    "RelativePath": "api/Pokemon",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonCollection.Application.DTOs.PokemonsDtos.PokemonResponseDto, PokemonCollection.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.PokemonController",
+    "Method": "GetById",
+    "RelativePath": "api/Pokemon/{pokemonId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pokemonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PokemonCollection.Application.DTOs.PokemonsDtos.PokemonResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PokemonCollection.API.Controllers.PokemonImportController",
     "Method": "Import",
     "RelativePath": "api/PokemonImport",

@@ -1,9 +1,10 @@
 import "./Home.css";
 import Header from "../../components/Headers/Header";
 import PokemonCard from "../../components/PokemonCards/PokemonCard";
+import { useState, useEffect } from "react";
+import { getPokemons } from "../../services/pokemonService";
 
-
-const pokemons = [
+/* const pokemons = [
     { id: 1, nome: "Bulbasaur"},
     { id: 2, nome: "Ivysaur"},
     { id: 3, nome: "Venusaur"},
@@ -25,8 +26,27 @@ const pokemons = [
     { id: 19, nome: "Rattata"},
     { id: 20, nome: "Raticate"},
 ];
+*/
 
 function Home() {
+
+    const [pokemons, setPokemons] = useState([]);
+
+    useEffect(() => {
+        async function carregarPokemons() {
+            try {
+                const data = await getPokemons();
+                setPokemons(data);
+            }
+            catch (erro) {
+                console.log(erro);
+            }
+        }
+        carregarPokemons();
+
+    }, []);
+
+
     return (
         <>
             <Header />
@@ -62,11 +82,9 @@ function Home() {
                 </section>
 
                 <section className="pokemon-grid">
-
                     {pokemons.map((pokemon) => (
                         <PokemonCard key={pokemon.id} pokemon={pokemon} />
                     ))}
-
                 </section>
 
             </main>

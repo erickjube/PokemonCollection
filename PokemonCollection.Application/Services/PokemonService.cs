@@ -16,24 +16,12 @@ public class PokemonService : IPokemonService
         _pokemonRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters)  //paginar
+    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters)  
     {
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
         var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize);
-        if (result == null) throw new ArgumentException("Erro ao buscar Categorias.");
+        if (result == null) throw new ArgumentException("Erro ao buscar pokemons.");
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
-
-
-        var dtos = result.Data.Select(p => new PokemonResponseDto
-        {
-            Id = p.Id,
-            Name = p.Name,
-            Generation = p.Generation.ToString(),
-            Region = p.Region.ToString(),
-            PrimaryType = p.PrimaryType.ToString(),
-            SecondaryType = p.SecondaryType.ToString(),
-            ImageUrl = p.ImageUrl,
-        });
 
         return new PagedList<PokemonResponseDto>
         {

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PokemonCollection.API.Header;
 using PokemonCollection.Application.DTOs.CardsDtos;
 using PokemonCollection.Application.Interfaces.Services;
+using PokemonCollection.Application.Pagination;
 
 namespace PokemonCollection.API.Controllers;
 
@@ -16,10 +18,11 @@ public class CardController : ControllerBase
     }
 
     [HttpGet("{pokemonId}/cards")]
-    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokemonId)
+    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokemonId, [FromQuery] QueryParameters parameters)
     {
-        var cards = await _cardService.GetByPokemonIdAsync(pokemonId);
-        return Ok(cards);
+        var metadata = await _cardService.GetByPokemonIdAsync(pokemonId, parameters);
+        Response.AppendPaginationHeader(metadata);
+        return Ok(metadata.Data);
     }
 
     [HttpGet("{cardId}")]

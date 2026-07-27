@@ -2,6 +2,7 @@
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using PokemonCollection.Domain.Common;
 
 namespace PokemonCollection.Infrastructure.Repositories;
 
@@ -14,12 +15,12 @@ public class CardRepository : ICardRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Card>> GetByPokemonIdAsync(int pokemonId)
+    public async Task<PagedList<Card>> GetByPokemonIdAsync(int pokemonId, int skip, int take)
     {
-        return await _context.Cards.Where(c => c.PokemonId == pokemonId).ToListAsync();
+        var totalCont = await _context.Cards.Where(c => c.PokemonId == pokemonId).CountAsync();
+        var data = await _context.Cards.Where(c => c.PokemonId == pokemonId).Skip(skip).Take(take).ToListAsync();
+        return new PagedList<Card> { Data = data, TotalCount = totalCont };
     }
-
-
 
     public async Task<Card?> GetById(int cardId)
     {

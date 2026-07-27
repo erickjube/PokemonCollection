@@ -1,9 +1,11 @@
 ﻿using PokemonCollection.Application.DTOs.CardsDtos;
+using PokemonCollection.Application.Pagination;
+using PokemonCollection.Domain.Common;
 
 namespace PokemonCollection.Application.Interfaces.Services;
 
 public interface ICardService
 {
-    Task<IEnumerable<CardResponseDto>> GetByPokemonIdAsync(int pokemonId);
+    Task<PagedList<CardResponseDto>> GetByPokemonIdAsync(int pokemonId, QueryParameters parameters);
     Task<CardResponseDto> GetByIdAsync(int cardId);
 }

@@ -1,6 +1,9 @@
 ﻿using PokemonCollection.Application.DTOs.CardsDtos;
+using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
+using PokemonCollection.Application.Pagination;
+using PokemonCollection.Domain.Common;
 
 namespace PokemonCollection.Application.Services;
 
@@ -13,19 +16,28 @@ public class CardService : ICardService
          _cardRepository = cardRepository;
     }
 
-    public async Task<IEnumerable<CardResponseDto>> GetByPokemonIdAsync(int pokemonId)  //paginar
+    public async Task<PagedList<CardResponseDto>> GetByPokemonIdAsync(int pokemonId ,QueryParameters parameters)
     {
-        var cards = await _cardRepository.GetByPokemonIdAsync(pokemonId);
+        var skip = (parameters.PageNumber - 1) * parameters.PageSize;
+        var result = await _cardRepository.GetByPokemonIdAsync(pokemonId, skip, parameters.PageSize);
+        if (result == null) throw new ArgumentException("Erro ao buscar cartas.");
+        ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
-        return cards.Select(c => new CardResponseDto
+        return new PagedList<CardResponseDto>
         {
-            Id = c.Id,
-            Name = c.Name,
-            CardNumber = c.CardNumber,
-            Rarity = c.Rarity.ToString(),
-            ImageUrl = c.ImageUrl,
-            SetName = c.SetName,
-        });
+            Data = result.Data.Select(c => new CardResponseDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                CardNumber = c.CardNumber,
+                Rarity = c.Rarity.ToString(),
+                ImageUrl = c.ImageUrl,
+                SetName = c.SetName,
+            }),
+            TotalCount = result.TotalCount,
+            PageNumber = parameters.PageNumber,
+            PageSize = parameters.PageSize
+        };
     }
 
     public async Task<CardResponseDto> GetByIdAsync(int cardId)

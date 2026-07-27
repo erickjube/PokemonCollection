@@ -1,6 +1,10 @@
 ﻿using PokemonCollection.Application.DTOs.CollectionEntryDtos;
+using PokemonCollection.Application.DTOs.PokemonsDtos;
+using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
+using PokemonCollection.Application.Pagination;
+using PokemonCollection.Domain.Common;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Domain.ENUMs;
 
@@ -21,23 +25,32 @@ public class CollectionEntryService : ICollectionEntryService
         _cardRepository = cardRepository;
     }
 
-    public async Task<IEnumerable<CollectionCardResponseDto>> GetCollectionAsync()  //paginar
+    public async Task<PagedList<CollectionCardResponseDto>> GetCollectionAsync(QueryParameters parameters)  //paginar
     {
-        var collections = await _collectionRepository.GetAllAsync();
+        var skip = (parameters.PageNumber - 1) * parameters.PageSize;
+        var result = await _collectionRepository.GetAllAsync(skip, parameters.PageSize);
+        if (result == null) throw new ArgumentException("Erro ao buscar Coleção.");
+        ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
-        return collections.Select(c => new CollectionCardResponseDto
+        return new PagedList<CollectionCardResponseDto>
         {
-            Id = c.Id,
-            CardId = c.CardId,
-            CardName = c.Card.Name,
-            PokemonName = c.Card.Pokemon.Name,
-            ImageUrl = c.Card.ImageUrl,
-            SetName = c.Card.SetName,
-            Condition = c.Condition.ToString(),
-            Language = c.Language.ToString(),
-            Extra = c.Extra.ToString(),
-            DateAdded = c.DateAdded
-        });
+            Data = result.Data.Select(c => new CollectionCardResponseDto
+            {
+                Id = c.Id,
+                CardId = c.CardId,
+                CardName = c.Card.Name,
+                PokemonName = c.Card.Pokemon.Name,
+                ImageUrl = c.Card.ImageUrl,
+                SetName = c.Card.SetName,
+                Condition = c.Condition.ToString(),
+                Language = c.Language.ToString(),
+                Extra = c.Extra.ToString(),
+                DateAdded = c.DateAdded
+            }),
+            TotalCount = result.TotalCount,
+            PageNumber = parameters.PageNumber,
+            PageSize = parameters.PageSize
+        };
     }
 
     public async Task<CollectionCardResponseDto> GetCollectionCardByIdAsync(int collectionEntryId)

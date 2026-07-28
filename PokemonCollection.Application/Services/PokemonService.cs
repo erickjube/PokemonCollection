@@ -41,6 +41,32 @@ public class PokemonService : IPokemonService
         };
     }
 
+    public async Task<PagedList<PokemonResponseDto>> GetByNameAsync(string name, QueryParameters parameters)
+    {
+        var skip = (parameters.PageNumber - 1) * parameters.PageSize;
+        var result = await _pokemonRepository.GetByNameAsync(name, skip, parameters.PageSize);
+        if (result == null) throw new ArgumentException("Erro ao buscar pokemons.");
+        ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
+
+        return new PagedList<PokemonResponseDto>
+        {
+            Data = result.Data.Select(p => new PokemonResponseDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Generation = p.Generation.ToString(),
+                Region = p.Region.ToString(),
+                PrimaryType = p.PrimaryType.ToString(),
+                SecondaryType = p.SecondaryType.ToString(),
+                ImageUrl = p.ImageUrl,
+            }),
+            TotalCount = result.TotalCount,
+            PageNumber = parameters.PageNumber,
+            PageSize = parameters.PageSize
+        };
+    }
+
+
     public async Task<PokemonResponseDto> GetByIdAsync(int pokemonId)
     {
         var pokemon = await _pokemonRepository.GetByIdAsync(pokemonId);

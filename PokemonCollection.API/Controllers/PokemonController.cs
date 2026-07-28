@@ -25,6 +25,15 @@ public class PokemonController : ControllerBase
         return Ok(metadata.Data);
     }
 
+    [HttpGet("{name}/search")]
+    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetByName(string name, [FromQuery] QueryParameters parameters)
+    {
+        var metadata = await _pokemonService.GetByNameAsync(name, parameters);
+        Response.AppendPaginationHeader(metadata);
+        return Ok(metadata.Data);
+    }
+
+
     [HttpGet("{pokemonId}")]
     public async Task<ActionResult<PokemonResponseDto>> GetById(int pokemonId)
     {

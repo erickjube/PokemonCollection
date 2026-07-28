@@ -7,6 +7,7 @@ public interface IPokemonRepository
 {
     Task<PagedList<Pokemon>> GetAllAsync(int skip, int take);
     Task<IEnumerable<Pokemon>> GetAllForImportAsync();
+    Task<PagedList<Pokemon>> GetByNameAsync(string name, int skip, int take);
     Task<Pokemon?> GetByIdAsync(int pokemonId);
     Task AddAsync(Pokemon pokemon);
     Task<bool> ExistsByPokedexNumberAsync(int pokedexNumber);

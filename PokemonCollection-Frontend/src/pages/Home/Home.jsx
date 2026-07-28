@@ -9,6 +9,12 @@ function Home() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [text, setText] = useState('');
+
+
+    const handleChange = (event) => {
+        setText(event.target.value);
+    };
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -37,7 +43,7 @@ function Home() {
 
                 <section className="search-section">
 
-                    <input type="text" placeholder="Pesquisar Pokémon..."/>
+                    <input type="text" value={text} onChange={handleChange} placeholder="Pesquisar Pokémon..."/>
 
                     <button>Buscar</button>
 

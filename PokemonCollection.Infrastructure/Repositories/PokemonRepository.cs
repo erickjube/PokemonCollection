@@ -3,6 +3,7 @@ using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Domain.Common;
 using PokemonCollection.Domain.Entities;
 using PokemonCollection.Infrastructure.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PokemonCollection.Infrastructure.Repositories;
 
@@ -25,6 +26,17 @@ public class PokemonRepository : IPokemonRepository
     public async Task<IEnumerable<Pokemon>> GetAllForImportAsync()
     {
         return await _context.Pokemons.ToListAsync();
+    }
+
+    public async Task<PagedList<Pokemon>> GetByNameAsync(string name, int skip, int take)
+    {
+        var query = _context.Pokemons.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(name)) query = query.Where(p => p.Name.Contains(name));
+
+        var totalCont = await query.CountAsync();
+        var data = await query.Skip(skip).Take(take).ToListAsync();
+        return new PagedList<Pokemon> { Data = data, TotalCount = totalCont };
     }
 
     public async Task<Pokemon?> GetByIdAsync(int pokemonId)

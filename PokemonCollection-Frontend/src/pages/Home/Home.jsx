@@ -4,33 +4,11 @@ import PokemonCard from "../../components/PokemonCards/PokemonCard";
 import { useState, useEffect } from "react";
 import { getPokemons } from "../../services/pokemonService";
 
-/* const pokemons = [
-    { id: 1, nome: "Bulbasaur"},
-    { id: 2, nome: "Ivysaur"},
-    { id: 3, nome: "Venusaur"},
-    { id: 4, nome: "Charmander"},
-    { id: 5, nome: "Charmeleon"},
-    { id: 6, nome: "Charizard"},
-    { id: 7, nome: "Squirtle"},
-    { id: 8, nome: "Wartortle"},
-    { id: 9, nome: "Blastoise"},
-    { id: 10, nome: "Caterpie"},
-    { id: 11, nome: "Metapod"},
-    { id: 12, nome: "Butterfree"},
-    { id: 13, nome: "Weedle"},
-    { id: 14, nome: "Kakuna"},
-    { id: 15, nome: "Beedrill"},
-    { id: 16, nome: "Pidgey"},
-    { id: 17, nome: "Pidgeotto"},
-    { id: 18, nome: "Pidgeot"},
-    { id: 19, nome: "Rattata"},
-    { id: 20, nome: "Raticate"},
-];
-*/
-
 function Home() {
 
     const [pokemons, setPokemons] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -39,9 +17,13 @@ function Home() {
                 setPokemons(data);
             }
             catch (erro) {
-                console.log(erro);
+                setError("Não foi possível carregar os pokémons.");
+            }
+            finally {
+                setLoading(false);
             }
         }
+
         carregarPokemons();
 
     }, []);
@@ -82,9 +64,19 @@ function Home() {
                 </section>
 
                 <section className="pokemon-grid">
-                    {pokemons.map((pokemon) => (
-                        <PokemonCard key={pokemon.id} pokemon={pokemon} />
-                    ))}
+                
+                {loading && 
+                    <div className="loading">
+                        <div className="spinner"></div> 
+                        Carregando pokémons...
+                    </div>
+                }
+
+                {!loading && error && ( <div className="loading">{error}</div> )}
+
+                {!loading && !error &&
+                    pokemons.map(pokemon => ( <PokemonCard key={pokemon.id} pokemon={pokemon} /> ))
+                }
                 </section>
 
             </main>

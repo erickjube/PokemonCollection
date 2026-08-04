@@ -11,6 +11,8 @@ function Home() {
     const [error, setError] = useState(null);
     const [text, setText] = useState('');
     const [generation, setGeneration] = useState('');
+    const [type, setType] = useState('');
+    const [region, setRegion] = useState('');
     const [page, setPage] = useState(1);
 
 
@@ -22,18 +24,26 @@ function Home() {
         setGeneration(event.target.value);
     };
 
-    const handleBuscar = () => {
-        setPage(1);
-        carregarPokemons(1, text, generation);
+    const handleTypeChange = (event) => {
+        setType(event.target.value);
     };
 
-    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "") {
+    const handleRegionChange = (event) => {
+        setRegion(event.target.value);
+    }
+
+    const handleBuscar = () => {
+        setPage(1);
+        carregarPokemons(1, text, generation, type, region);
+    };
+
+    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "", tipo = "", regiao = "") {
 
         setLoading(true);
         setError(null);
 
         try {
-            const data = await getPokemons(pageAtual, 50, pesquisa, geracao);
+            const data = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao);
             setPokemons(data);
         }
         catch {
@@ -45,7 +55,7 @@ function Home() {
     }
 
     useEffect(() => {
-        carregarPokemons(page, text, generation);
+        carregarPokemons(page, text, generation, type, region);
     }, []);
 
     return (
@@ -68,8 +78,26 @@ function Home() {
 
                 <section className="filters">
 
-                    <select>
-                        <option>Tipo</option>
+                    <select value={type} onChange={handleTypeChange}>
+                        <option value="">Tipo</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Water">Water</option>
+                        <option value="Grass">Grass</option>
+                        <option value="Flying">Flying</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Poison">Poison</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Ground">Ground</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Bug">Bug</option>
+                        <option value="Ghost">Ghost</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Fairy">Fairy</option>
                     </select>
 
                     <select value={generation} onChange={handleGenerationChange}>
@@ -85,8 +113,17 @@ function Home() {
                         <option value="Gen9">Geração 9</option>
                     </select>
 
-                    <select>
-                        <option>Região</option>
+                    <select value={region} onChange={handleRegionChange}>
+                        <option value="">Região</option>
+                        <option value="Kanto">Kanto</option>
+                        <option value="Johto">Johto</option>
+                        <option value="Hoenn">Hoenn</option>
+                        <option value="Sinnoh">Sinnoh</option>
+                        <option value="Unova">Unova</option>
+                        <option value="Kalos">Kalos</option>
+                        <option value="Alola">Alola</option>
+                        <option value="Galar">Galar</option>
+                        <option value="Paldea">Paldea</option>
                     </select>
 
                 </section>

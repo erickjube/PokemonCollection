@@ -20,7 +20,7 @@ public class PokemonService : IPokemonService
     public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters, PokemonFilter filter)  
     {
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize, filter.Search, filter.Generation);
+        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize, filter);
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
         return new PagedList<PokemonResponseDto>

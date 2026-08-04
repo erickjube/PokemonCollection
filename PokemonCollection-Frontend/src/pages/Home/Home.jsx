@@ -13,6 +13,7 @@ function Home() {
     const [generation, setGeneration] = useState('');
     const [type, setType] = useState('');
     const [region, setRegion] = useState('');
+    const [sort, setSort] = useState('pokedex-asc');
     const [page, setPage] = useState(1);
 
 
@@ -32,18 +33,22 @@ function Home() {
         setRegion(event.target.value);
     }
 
-    const handleBuscar = () => {
-        setPage(1);
-        carregarPokemons(1, text, generation, type, region);
+    const handleSortChange = (event) => {
+        setSort(event.target.value);
     };
 
-    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "", tipo = "", regiao = "") {
+    const handleBuscar = () => {
+        setPage(1);
+        carregarPokemons(1, text, generation, type, region, sort);
+    };
+
+    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "", tipo = "", regiao = "", ordenacao = "pokedex-asc") {
 
         setLoading(true);
         setError(null);
 
         try {
-            const data = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao);
+            const data = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao, ordenacao);
             setPokemons(data);
         }
         catch {
@@ -55,7 +60,7 @@ function Home() {
     }
 
     useEffect(() => {
-        carregarPokemons(page, text, generation, type, region);
+        carregarPokemons(page, text, generation, type, region, sort);
     }, []);
 
     return (
@@ -70,8 +75,11 @@ function Home() {
 
                     <button onClick={handleBuscar}>Buscar</button>
 
-                    <select>
-                        <option>Numeração Pokedex [0-9]</option>
+                    <select value={sort} onChange={handleSortChange}>
+                        <option value="pokedex-asc">Numeração Pokédex [0-9]</option>
+                        <option value="pokedex-desc">Numeração Pokédex [9-0]</option>
+                        <option value="name-asc">Nome [A-Z]</option>
+                        <option value="name-desc">Nome [Z-A]</option>
                     </select>
 
                 </section>

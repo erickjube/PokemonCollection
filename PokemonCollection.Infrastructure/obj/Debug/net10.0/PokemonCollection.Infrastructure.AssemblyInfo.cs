@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokemonCollection.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76bba8eabf699e09683167f20d29f1253836aa60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75db350ea88be06d5118311dc39dc6b058d93410")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokemonCollection.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokemonCollection.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

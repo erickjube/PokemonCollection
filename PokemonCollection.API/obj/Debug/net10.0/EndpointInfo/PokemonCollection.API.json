@@ -372,11 +372,17 @@
             }
           },
           {
-            "name": "PokedexNumber",
+            "name": "SortBy",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/PokemonSort"
+            }
+          },
+          {
+            "name": "Descending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -621,6 +627,13 @@
           }
         },
         "additionalProperties": false
+      },
+      "PokemonSort": {
+        "enum": [
+          "PokedexNumber",
+          "Name"
+        ],
+        "type": "string"
       }
     }
   },

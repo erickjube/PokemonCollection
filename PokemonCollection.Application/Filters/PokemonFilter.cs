@@ -1,4 +1,6 @@
-﻿namespace PokemonCollection.Application.Filters;
+﻿using PokemonCollection.Domain.ENUMs;
+
+namespace PokemonCollection.Application.Filters;
 
 public class PokemonFilter
 {
@@ -6,5 +8,6 @@ public class PokemonFilter
     public string? Generation { get; set; }
     public string? Type { get; set; }
     public string? Region { get; set; }
-    public int? PokedexNumber { get; set; }
+    public PokemonSort SortBy { get; set; } = PokemonSort.PokedexNumber;
+    public bool Descending { get; set; }
 }

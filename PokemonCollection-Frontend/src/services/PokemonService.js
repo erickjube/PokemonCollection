@@ -1,10 +1,12 @@
 const API_URL = "https://localhost:7238/api/Pokemon";
 
-export async function getPokemons(page = 1, pageSize = 50, search = "") {
+export async function getPokemons(page = 1, pageSize = 50, search = "", generation = "") {
     
     let url = `${API_URL}?PageNumber=${page}&PageSize=${pageSize}`;
 
     if (search) url += `&Search=${encodeURIComponent(search)}`;
+    
+    if (generation) url += `&Generation=${encodeURIComponent(generation)}`;
 
     const response = await fetch(url);
 

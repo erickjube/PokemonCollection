@@ -10,6 +10,7 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [text, setText] = useState('');
+    const [generation, setGeneration] = useState('');
     const [page, setPage] = useState(1);
 
 
@@ -17,13 +18,22 @@ function Home() {
         setText(event.target.value);
     };
 
-    async function carregarPokemons(pageAtual = page, pesquisa = "") {
+    const handleGenerationChange = (event) => {
+        setGeneration(event.target.value);
+    };
+
+    const handleBuscar = () => {
+        setPage(1);
+        carregarPokemons(1, text, generation);
+    };
+
+    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "") {
 
         setLoading(true);
         setError(null);
 
         try {
-            const data = await getPokemons(pageAtual, 50, pesquisa);
+            const data = await getPokemons(pageAtual, 50, pesquisa, geracao);
             setPokemons(data);
         }
         catch {
@@ -35,7 +45,7 @@ function Home() {
     }
 
     useEffect(() => {
-        carregarPokemons(page + 1, text);
+        carregarPokemons(page, text, generation);
     }, []);
 
     return (
@@ -48,7 +58,7 @@ function Home() {
 
                     <input type="text" value={text} onChange={handleChange} placeholder="Pesquisar Pokémon..."/>
 
-                    <button onClick={() => { setPage(1); carregarPokemons(1, text); }}>Buscar</button>
+                    <button onClick={handleBuscar}>Buscar</button>
 
                     <select>
                         <option>Numeração Pokedex [0-9]</option>
@@ -62,8 +72,17 @@ function Home() {
                         <option>Tipo</option>
                     </select>
 
-                    <select>
-                        <option>Geração</option>
+                    <select value={generation} onChange={handleGenerationChange}>
+                        <option value="">Geração</option>
+                        <option value="Gen1">Geração 1</option>
+                        <option value="Gen2">Geração 2</option>
+                        <option value="Gen3">Geração 3</option>
+                        <option value="Gen4">Geração 4</option>
+                        <option value="Gen5">Geração 5</option>
+                        <option value="Gen6">Geração 6</option>
+                        <option value="Gen7">Geração 7</option>
+                        <option value="Gen8">Geração 8</option>
+                        <option value="Gen9">Geração 9</option>
                     </select>
 
                     <select>

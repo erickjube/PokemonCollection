@@ -15,12 +15,15 @@ public class PokemonRepository : IPokemonRepository
         _context = context;
     }
 
-    public async Task<PagedList<Pokemon>> GetAllAsync(int skip, int take, string? search)
+    public async Task<PagedList<Pokemon>> GetAllAsync(int skip, int take, string? search, string? generation)
     {
         var query = _context.Pokemons.AsQueryable();
         
         if (!string.IsNullOrWhiteSpace(search))
             query = query.Where(p => p.Name.Contains(search));
+
+        if (!string.IsNullOrEmpty(generation))
+            query = query.Where(p => p.Generation.ToString().Contains(generation));
 
         var totalCount = await query.CountAsync();
         var data = await query.Skip(skip).Take(take).ToListAsync();

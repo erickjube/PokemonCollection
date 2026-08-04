@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PokemonCollection.API.Header;
 using PokemonCollection.Application.DTOs.PokemonsDtos;
+using PokemonCollection.Application.Filters;
 using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Application.Pagination;
 
@@ -18,9 +19,9 @@ public class PokemonController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetAll([FromQuery] PokemonQueryParameters parameters)
+    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetAll([FromQuery] QueryParameters parameters, [FromQuery] PokemonFilter filter)
     {
-        var metadata = await _pokemonService.GetAllAsync(parameters);
+        var metadata = await _pokemonService.GetAllAsync(parameters, filter);
         Response.AppendPaginationHeader(metadata);
         return Ok(metadata.Data);
     }

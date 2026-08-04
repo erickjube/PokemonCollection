@@ -328,7 +328,30 @@
         ],
         "parameters": [
           {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Generation",
             "in": "query",
             "schema": {
               "type": "string"
@@ -349,22 +372,7 @@
             }
           },
           {
-            "name": "Generation",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
+            "name": "PokedexNumber",
             "in": "query",
             "schema": {
               "type": "integer",

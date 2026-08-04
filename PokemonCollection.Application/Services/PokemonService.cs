@@ -1,4 +1,5 @@
 ﻿using PokemonCollection.Application.DTOs.PokemonsDtos;
+using PokemonCollection.Application.Filters;
 using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
@@ -16,10 +17,10 @@ public class PokemonService : IPokemonService
         _pokemonRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(PokemonQueryParameters parameters)  
+    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters, PokemonFilter filter)  
     {
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize, parameters.Search, parameters.Generation);
+        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize, filter.Search, filter.Generation);
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
         return new PagedList<PokemonResponseDto>

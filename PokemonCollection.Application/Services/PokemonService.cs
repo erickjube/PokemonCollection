@@ -16,11 +16,10 @@ public class PokemonService : IPokemonService
         _pokemonRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(QueryParameters parameters)  
+    public async Task<PagedList<PokemonResponseDto>> GetAllAsync(PokemonQueryParameters parameters)  
     {
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize);
-        if (result == null) throw new ArgumentException("Erro ao buscar pokemons.");
+        var result = await _pokemonRepository.GetAllAsync(skip, parameters.PageSize, parameters.Search);
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
         return new PagedList<PokemonResponseDto>
@@ -40,32 +39,6 @@ public class PokemonService : IPokemonService
             PageSize = parameters.PageSize
         };
     }
-
-    public async Task<PagedList<PokemonResponseDto>> GetByNameAsync(string name, QueryParameters parameters)
-    {
-        var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _pokemonRepository.GetByNameAsync(name, skip, parameters.PageSize);
-        if (result == null) throw new ArgumentException("Erro ao buscar pokemons.");
-        ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
-
-        return new PagedList<PokemonResponseDto>
-        {
-            Data = result.Data.Select(p => new PokemonResponseDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Generation = p.Generation.ToString(),
-                Region = p.Region.ToString(),
-                PrimaryType = p.PrimaryType.ToString(),
-                SecondaryType = p.SecondaryType.ToString(),
-                ImageUrl = p.ImageUrl,
-            }),
-            TotalCount = result.TotalCount,
-            PageNumber = parameters.PageNumber,
-            PageSize = parameters.PageSize
-        };
-    }
-
 
     public async Task<PokemonResponseDto> GetByIdAsync(int pokemonId)
     {

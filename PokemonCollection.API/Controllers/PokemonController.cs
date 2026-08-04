@@ -18,21 +18,12 @@ public class PokemonController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetAll([FromQuery] QueryParameters parameters)
+    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetAll([FromQuery] PokemonQueryParameters parameters)
     {
         var metadata = await _pokemonService.GetAllAsync(parameters);
         Response.AppendPaginationHeader(metadata);
         return Ok(metadata.Data);
     }
-
-    [HttpGet("{name}/search")]
-    public async Task<ActionResult<IEnumerable<PokemonResponseDto>>> GetByName(string name, [FromQuery] QueryParameters parameters)
-    {
-        var metadata = await _pokemonService.GetByNameAsync(name, parameters);
-        Response.AppendPaginationHeader(metadata);
-        return Ok(metadata.Data);
-    }
-
 
     [HttpGet("{pokemonId}")]
     public async Task<ActionResult<PokemonResponseDto>> GetById(int pokemonId)

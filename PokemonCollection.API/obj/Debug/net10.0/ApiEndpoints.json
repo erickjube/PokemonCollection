@@ -195,40 +195,24 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "PageNumber",
-        "Type": "System.Int32",
+        "Name": "Search",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "PageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonCollection.Application.DTOs.PokemonsDtos.PokemonResponseDto, PokemonCollection.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "PokemonCollection.API.Controllers.PokemonController",
-    "Method": "GetByName",
-    "RelativePath": "api/Pokemon/{name}/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "name",
+        "Name": "Type",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "Region",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Generation",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       },
       {
         "Name": "PageNumber",

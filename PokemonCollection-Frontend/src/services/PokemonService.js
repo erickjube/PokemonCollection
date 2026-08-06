@@ -37,5 +37,19 @@ export async function getPokemons(page = 1, pageSize = 50, search = "", generati
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Erro ao buscar os pokémons");
-    return response.json();
+
+    const pokemons = await response.json();
+    const pagination = JSON.parse(response.headers.get("X-Pagination"));
+
+    return { 
+        data: pokemons, 
+        pagination: {
+            currentPage: pagination.CurrentPage,
+            totalPages: pagination.TotalPages,
+            totalCount: pagination.TotalCount,
+            pageSize: pagination.PageSize,
+            hasNext: pagination.HasNext,
+            hasPrevious: pagination.HasPrevious
+        }
+    };
 }

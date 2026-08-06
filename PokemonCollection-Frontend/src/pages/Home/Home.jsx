@@ -7,12 +7,16 @@ import { getPokemons } from "../../services/pokemonService";
 function Home() {
 
     const [pokemons, setPokemons] = useState([]);
+    const [pagination, setPagination] = useState(null);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    
     const [text, setText] = useState('');
     const [generation, setGeneration] = useState('');
     const [type, setType] = useState('');
     const [region, setRegion] = useState('');
+
     const [sort, setSort] = useState('pokedex-asc');
     const [page, setPage] = useState(1);
 
@@ -48,10 +52,12 @@ function Home() {
         setError(null);
 
         try {
-            const data = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao, ordenacao);
-            setPokemons(data);
+            const result = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao, ordenacao);
+            setPokemons(result.data);
+            setPagination(result.pagination);
         }
-        catch {
+        catch (err) {
+            Console.error(err);
             setError("Não foi possível carregar os pokémons.");
         }
         finally {
@@ -150,6 +156,101 @@ function Home() {
                 {/* Renderiza os pokémons caso não haja loading, erro e haja pokémons */}
                 {!loading && !error && pokemons.length > 0 && pokemons.map(pokemon => ( <PokemonCard key={pokemon.id} pokemon={pokemon} /> ))}
 
+                </section>
+
+                <section className="pagination">
+                    <div className= "pagination-buttons">
+                        <button onClick={() => {
+                            setPage(1);
+                            carregarPokemons(1, text, generation, type, region, sort); }}
+                            disabled={page === 1}
+                            aria-label="Primeira página" 
+                            title="Primeira página">
+                                <svg class="button-icon" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24">
+                                    <path 
+                                        stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        stroke-width="2" 
+                                        d="M18 19l-7-7 7-7">
+                                    </path>
+                                    <path 
+                                        stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        stroke-width="2" 
+                                        d="M11 19l-7-7 7-7">
+                                    </path>
+                                </svg>
+                        </button>
+
+                        <button onClick={() => { 
+                                setPage(page - 1); 
+                                carregarPokemons(page - 1, text, generation, type, region, sort); }} 
+                                disabled={page === 1}
+                                aria-label="Página anterior"
+                                title="Página anterior">
+                                    <svg class="button-icon" 
+                                        fill="none" 
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M15 19l-7-7 7-7">
+                                        </path>
+                                    </svg>
+                        </button>
+
+                        <button onClick={() => { 
+                                setPage(page + 1); 
+                                carregarPokemons(page + 1, text, generation, type, region, sort); }} 
+                                disabled={pagination && !pagination.hasNext}
+                                aria-label="Próxima página" 
+                                title="Próxima página">
+                                    <svg class="button-icon" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        viewBox="0 0 24 24">
+                                        <path 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M9 5l7 7-7 7">
+                                        </path>
+                                    </svg>
+                        </button>
+
+                        <button onClick={() => {
+                                setPage(pagination.totalPages); 
+                                carregarPokemons(pagination.totalPages, text, generation, type, region, sort); }}
+                                disabled={!pagination || page === pagination.totalPages}
+                                aria-label="Última página"
+                                title="Última página">
+                                    <svg class="button-icon" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        viewBox="0 0 24 24">
+                                        <path 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M6 5l7 7-7 7">
+                                        </path>
+                                        <path 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M13 5l7 7-7 7">
+                                        </path>
+                                    </svg>
+                        </button>
+                    </div>
+                    
+                    <p>Página {page} de {pagination ? pagination.totalPages : 1}</p>
+                    
                 </section>
 
             </main>

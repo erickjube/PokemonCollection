@@ -1,6 +1,6 @@
 import "./Home.css";
 import Header from "../../components/Headers/Header";
-import PokemonCard from "../../components/PokemonCards/PokemonCard";
+import PokemonHome from "../../components/PokemonHome/PokemonHome";
 import { useState, useEffect } from "react";
 import { getPokemons } from "../../services/pokemonService";
 
@@ -56,8 +56,8 @@ function Home() {
             setPokemons(result.data);
             setPagination(result.pagination);
         }
-        catch (err) {
-            Console.error(err);
+        catch (error) {
+            console.error(error);
             setError("Não foi possível carregar os pokémons.");
         }
         finally {
@@ -154,7 +154,7 @@ function Home() {
                 {!loading && !error && pokemons.length === 0 && ( <div className="loading">Nenhum Pokémon encontrado.</div> )}
 
                 {/* Renderiza os pokémons caso não haja loading, erro e haja pokémons */}
-                {!loading && !error && pokemons.length > 0 && pokemons.map(pokemon => ( <PokemonCard key={pokemon.id} pokemon={pokemon} /> ))}
+                {!loading && !error && pokemons.length > 0 && pokemons.map(pokemon => ( <PokemonHome key={pokemon.pokedexNumber} pokemon={pokemon} /> ))}
 
                 </section>
 

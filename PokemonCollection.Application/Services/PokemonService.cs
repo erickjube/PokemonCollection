@@ -28,6 +28,7 @@ public class PokemonService : IPokemonService
             Data = result.Data.Select(p => new PokemonResponseDto
             {
                 Id = p.Id,
+                PokedexNumber = p.PokedexNumber,
                 Name = p.Name,
                 Generation = p.Generation.ToString(),
                 Region = p.Region.ToString(),
@@ -49,6 +50,7 @@ public class PokemonService : IPokemonService
         return new PokemonResponseDto
         {
             Id = pokemon.Id,
+            PokedexNumber = pokemon.PokedexNumber,
             Name = pokemon.Name,
             Generation = pokemon.Generation.ToString(),
             Region = pokemon.Region.ToString(),

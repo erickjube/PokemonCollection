@@ -53,3 +53,9 @@ export async function getPokemons(page = 1, pageSize = 50, search = "", generati
         }
     };
 }
+
+export async function getPokemonByPokedexNumber(pokedexNumber) {
+    const response = await fetch(`${API_URL}/pokedex/${pokedexNumber}`);
+    if (!response.ok) throw new Error("Erro ao buscar o pokémon");
+    return await response.json();
+}

@@ -1,9 +1,9 @@
-import "./PokemonCard.css";
+import "./PokemonHome.css";
 
-function PokemonCard({ pokemon }) {
+function PokemonHome({ pokemon }) {
 
     return (
-        <div className="pokemon-card">
+        <div className="pokemon-home">
 
             <img
                 src={pokemon.imageUrl}
@@ -11,10 +11,10 @@ function PokemonCard({ pokemon }) {
             />
 
             <h2>{pokemon.name}</h2>
-            <p>#{pokemon.id}</p>
+            <p>#{pokemon.pokedexNumber}</p>
 
         </div>
     );
 }
 
-export default PokemonCard;
+export default PokemonHome;

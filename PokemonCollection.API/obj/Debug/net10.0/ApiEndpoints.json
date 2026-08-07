@@ -274,6 +274,32 @@
     ]
   },
   {
+    "ContainingType": "PokemonCollection.API.Controllers.PokemonController",
+    "Method": "GetByPokedexNumber",
+    "RelativePath": "api/Pokemon/pokedex/{pokedexNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pokedexNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PokemonCollection.Application.DTOs.PokemonsDtos.PokemonResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PokemonCollection.API.Controllers.PokemonImportController",
     "Method": "Import",
     "RelativePath": "api/PokemonImport",

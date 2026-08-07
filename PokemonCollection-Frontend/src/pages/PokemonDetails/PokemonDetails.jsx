@@ -11,7 +11,7 @@ function PokemonDetails() {
     
     async function carregarDetalhesPokemon() {
         try {
-            const pokemon = await getPokemonById(id);
+            const pokemon = await getPokemonByPokedexNumber(pokedexNumber);
             setPokemon(pokemon);
         }
         catch (error) {
@@ -21,7 +21,7 @@ function PokemonDetails() {
 
     useEffect(() => {
         carregarDetalhesPokemon();
-    }, [id]);
+    }, [pokedexNumber]);
 
     return (
         <>

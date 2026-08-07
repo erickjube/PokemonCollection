@@ -42,6 +42,24 @@ public class PokemonService : IPokemonService
         };
     }
 
+    public async Task<PokemonResponseDto> GetByPokedexNumberAsync(int pokedexNumber)
+    {
+        var pokemon = await _pokemonRepository.GetByPokedexNumberAsync(pokedexNumber);
+        if (pokemon == null) throw new ArgumentException("Pokemon não encotrado!");
+
+        return new PokemonResponseDto
+        {
+            Id = pokemon.Id,
+            PokedexNumber = pokemon.PokedexNumber,
+            Name = pokemon.Name,
+            Generation = pokemon.Generation.ToString(),
+            Region = pokemon.Region.ToString(),
+            PrimaryType = pokemon.PrimaryType.ToString(),
+            SecondaryType = pokemon.SecondaryType.ToString(),
+            ImageUrl = pokemon.ImageUrl,
+        };
+    }
+
     public async Task<PokemonResponseDto> GetByIdAsync(int pokemonId)
     {
         var pokemon = await _pokemonRepository.GetByIdAsync(pokemonId);

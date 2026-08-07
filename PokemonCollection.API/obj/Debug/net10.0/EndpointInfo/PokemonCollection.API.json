@@ -419,6 +419,46 @@
         }
       }
     },
+    "/api/Pokemon/pokedex/{pokedexNumber}": {
+      "get": {
+        "tags": [
+          "Pokemon"
+        ],
+        "parameters": [
+          {
+            "name": "pokedexNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Pokemon/{pokemonId}": {
       "get": {
         "tags": [

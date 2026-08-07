@@ -26,6 +26,13 @@ public class PokemonController : ControllerBase
         return Ok(metadata.Data);
     }
 
+    [HttpGet("pokedex/{pokedexNumber}")]
+    public async Task<ActionResult<PokemonResponseDto>> GetByPokedexNumber(int pokedexNumber)
+    {
+        var pokemon = await _pokemonService.GetByPokedexNumberAsync(pokedexNumber);
+        return Ok(pokemon);
+    }
+
     [HttpGet("{pokemonId}")]
     public async Task<ActionResult<PokemonResponseDto>> GetById(int pokemonId)
     {

@@ -6,7 +6,7 @@ public class CardImportResponseDto
     public string Name { get; set; } = string.Empty;
     public string Number { get; set; } = string.Empty;
     public List<int>? NationalPokedexNumbers { get; set; }
-    public string? Rarity { get; set; }
+    public string Rarity { get; set; } = string.Empty;
     public CardImageDto Images { get; set; } = null!;
     public CardSetDto Set { get; set; } = null!;
 }

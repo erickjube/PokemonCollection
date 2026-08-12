@@ -5,11 +5,11 @@
     justify-content: space-between;
     padding: 20px;
     border-radius: 10px;
-    margin: 30px 80px;
-    width: 700px;
-    height: 550px;
+    margin: 20px 80px;
+    width: 600px;
+    height: 530px;
     box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.8);
-    background-color: #a8a8a8;
+    background-color: rgb(212, 208, 208);
 }
 
 .card-title {
@@ -41,6 +41,7 @@
 }
 
 .card-image {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -53,6 +54,29 @@
 
 .card-image img {
     width: 250px;
+    display: block;
+}
+
+.card-preview {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-preview img {
+    width: 400px;
+    max-width: 40vw;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+    
+.card-preview:hover {
+    transform: translate(-50%, -50%) scale(1.02);
 }
 
 .card-info-empty {
@@ -100,4 +124,97 @@
 .card-place-empty svg {
     width: 50px;
     height: 50px;
+}
+
+
+.card-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.card-modal {
+    position: relative;
+    width: 700px;
+    max-width: 90vw;
+    padding: 30px;
+    background: #cfcece;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-modal-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.card-modal-content > img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.card-modal-info {
+    flex: 1;
+}
+
+.card-modal-info h2 {
+    margin-bottom: 20px;
+}
+
+.card-modal-info p {
+    margin: 10px 0;
+}
+
+.card-modal-close {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.card-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.card-modal-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+.btn-remove {
+    background: #d32f2f;
+    transition: 0.2s;
+}
+
+.btn-remove:hover {
+    background-color: #f74141;
+}
+
+.btn-replace {
+    background: #1976d2;
+    transition: 0.2s;
+}
+
+.btn-replace:hover {
+    background: #3c9cfc;
 }

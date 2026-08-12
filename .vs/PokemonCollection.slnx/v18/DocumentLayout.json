@@ -46,8 +46,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\DTOs\\CollectionEntryDtos\\CollectionCardResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T18:02:51.851Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T18:02:51.851Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "PokemonCollection.Domain\\Entities\\CollectionEntry.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAQwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T17:38:29.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T17:38:29.302Z"
             },
             {
               "$type": "Document",
@@ -72,8 +70,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\Interfaces\\Services\\ICollectionEntryService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T17:23:08.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T17:23:08.96Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\Services\\CollectionEntryService.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAAwE4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T17:11:42.962Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T17:11:42.962Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "PokemonCollection.API\\Controllers\\CollectionEntryController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAQwCoAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T17:11:27.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T17:11:27.853Z"
             }
           ]
         }

@@ -1,6 +1,10 @@
 import "./CardInfo.css";
+import { useState } from "react";
 
-function CardInfo({ card }) {
+function CardInfo({ card, onRemove, onReplace }) {
+    const [showPreview, setShowPreview] = useState(false);
+    const [showDetails, setShowDetails] = useState(false);
+
     return (
         card === null ? (
             <div className="card-info-empty">
@@ -36,15 +40,74 @@ function CardInfo({ card }) {
                     <h1>({card.cardNumber}/{card.setPrintedTotal})</h1>
                 </div>
 
-                <div className="card-image">
+                <div className="card-image" 
+                    onMouseEnter={() => setShowPreview(true)} 
+                    onMouseLeave={() => setShowPreview(false)}>
+
                     <img src={card.imageUrl} alt={card.cardName} />
+
+                    {showPreview && (
+                        <div className="card-preview" 
+                            onMouseEnter={() => setShowPreview(true)}
+                            onMouseLeave={() => setShowPreview(false)}
+                            onClick={() => setShowDetails(true)}>
+                            <img src={card.imageUrl} alt={card.cardName} />
+                        </div>
+                    )}
                 </div>
 
                 <div className="card-infos">
                     <p>{card.cardRarity}</p>
                     <p>{card.setName}</p>
                 </div>
-            </div>  
+
+                {showDetails && (
+                    <div className="card-modal-overlay" onClick={() => setShowDetails(false)} >
+                        <div className="card-modal" onClick={(e) => e.stopPropagation()} >   
+                            <button className="card-modal-close" onClick={() => setShowDetails(false)} >
+                                ×
+                            </button>
+
+                            <div className="card-modal-content">
+
+                                <img src={card.imageUrl} alt={card.cardName} />
+
+                                <div className="card-modal-info">
+                                    <h2>{card.cardName}</h2>
+
+                                    <p>
+                                        <strong>Condição:</strong>{" "}
+                                        {card.condition}
+                                    </p>
+
+                                    <p>
+                                        <strong>Língua:</strong>{" "}
+                                        {card.language}
+                                    </p>
+
+                                    <p>
+                                        <strong>Extra:</strong>{" "}
+                                        {card.extra}
+                                    </p>
+
+                                    <p>
+                                        <strong>Adicionada em:</strong>{" "}
+                                        {new Date(card.dateAdded).toLocaleDateString("pt-BR")}                    
+                                    </p>
+
+                                    <div className="card-modal-actions">
+                                        <button className="btn-remove" onClick={onRemove}>Remover da coleção</button>
+
+                                        <button className="btn-replace" onClick={() => {setShowDetails(false); onReplace(); }}>
+                                            Substituir Carta
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
         )
     );
 }

@@ -6,6 +6,7 @@ import {useState, useEffect} from "react";
 import { getPokemonByPokedexNumber } from "../../services/PokemonService";
 import { getCardByPokedexNumber } from "../../services/CardService";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PokemonDetails() {
     const { pokedexNumber } = useParams();
@@ -41,10 +42,16 @@ function PokemonDetails() {
     return (
         <>
             <Header />
-            <main className="pokemon-details-container">
-                <PokemonInfo pokemon={pokemon} />
-                <CardInfo card={card} />
-            </main>
+            <div className="pokemon-details-page">
+                <Link to="/">
+                    <button className="btn-back">Voltar</button>
+                </Link>
+                
+                <main className="pokemon-details-container">
+                    <PokemonInfo pokemon={pokemon} />
+                    <CardInfo card={card} />
+                </main>
+            </div>
         </>
     );
 }

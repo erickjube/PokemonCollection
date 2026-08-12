@@ -28,13 +28,13 @@
   {
     "ContainingType": "PokemonCollection.API.Controllers.CardController",
     "Method": "GetByPokemonId",
-    "RelativePath": "api/Card/{pokemonId}/cards",
+    "RelativePath": "api/Card/{pokedexNumber}/cards",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pokemonId",
+        "Name": "pokedexNumber",
         "Type": "System.Int32",
         "IsRequired": true
       },

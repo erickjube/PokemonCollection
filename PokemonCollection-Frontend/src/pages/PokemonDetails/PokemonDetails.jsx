@@ -1,5 +1,7 @@
 import Header from "../../components/Headers/Header";
+import "./PokemonDetails.css";
 import PokemonInfo from "../../components/PokemonInfo/PokemonInfo";
+import CardInfo from "../../components/CardInfo/CardInfo";
 import {useState, useEffect} from "react";
 import { getPokemonByPokedexNumber } from "../../services/PokemonService";
 import { useParams } from "react-router-dom";
@@ -26,8 +28,10 @@ function PokemonDetails() {
     return (
         <>
             <Header />
-            <PokemonInfo pokemon={pokemon} />
-            
+            <main className="pokemon-details-container">
+                <PokemonInfo pokemon={pokemon} />
+                <CardInfo />
+            </main>
         </>
     );
 }

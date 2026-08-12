@@ -5,14 +5,14 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Card/{pokemonId}/cards": {
+    "/api/Card/{pokedexNumber}/cards": {
       "get": {
         "tags": [
           "Card"
         ],
         "parameters": [
           {
-            "name": "pokemonId",
+            "name": "pokedexNumber",
             "in": "path",
             "required": true,
             "schema": {
@@ -540,6 +540,10 @@
           "setName": {
             "type": "string",
             "nullable": true
+          },
+          "setPrintedTotal": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

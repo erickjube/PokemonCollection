@@ -10,4 +10,5 @@ public class CardResponseDto
     public string Rarity { get; set; } = string.Empty;
     public string ImageUrl { get; set; } = string.Empty;
     public string SetName { get; set; } = string.Empty; 
+    public int SetPrintedTotal {  get; set; }
 }

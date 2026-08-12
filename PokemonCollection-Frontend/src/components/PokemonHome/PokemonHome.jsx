@@ -1,9 +1,9 @@
 import "./PokemonHome.css";
 
-function PokemonHome({ pokemon }) {
+function PokemonHome({ pokemon, onClick }) {
 
     return (
-        <div className="pokemon-home">
+        <div className="pokemon-home" onClick={onClick}>
 
             <img
                 src={pokemon.imageUrl}

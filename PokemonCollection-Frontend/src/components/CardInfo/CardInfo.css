@@ -1,4 +1,4 @@
-.pokemon-info {
+.card-info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,35 @@
     background-color: #a8a8a8;
 }
 
-.pokemon-image {
+.card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 100%;
+    gap: 15px;
+}
+
+.card-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    color: Black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-image {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -23,38 +51,6 @@
     border-radius: 10px;
 }
 
-.pokemon-info img {
-    width: 350px;
-    height: 350px;
-}
-
-.pokemon-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-    width: 100%;
-}
-
-.pokemon-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    width: 100%;
-    gap: 15px;
-}
-
-.pokemon-infos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
+.card-image img {
+    width: 250px;
 }

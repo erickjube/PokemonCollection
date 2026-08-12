@@ -7,19 +7,23 @@ function PokemonInfo({ pokemon }) {
 
     return (
         <div className="pokemon-info">
-            <div className="pokemon-image">
-                <img src={pokemon.imageUrl} alt={pokemon.name} />
-            </div>
-
             <div className="pokemon-details">
-                <h2>{pokemon.name}</h2>
-                <p>#{pokemon.PokedexNumber}</p>
-                <p>Type: {pokemon.primaryType}</p>
-                {pokemon.secondaryType && <p>Secondary Type: {pokemon.secondaryType}</p>}
-                <p>Generation: {pokemon.generation}</p>
-                <p>Region: {pokemon.region}</p>
-            </div>
+                <div className="pokemon-title">
+                    <h1>#{pokemon.pokedexNumber}</h1>
+                    <h1>{pokemon.name}</h1>
+                </div>
 
+                <div className="pokemon-image">
+                    <img src={pokemon.imageUrl} alt={pokemon.name} />
+                </div>
+
+                <div className="pokemon-infos">
+                    <p>{pokemon.generation}</p>
+                    <p>{pokemon.region}</p>
+                    <p>{pokemon.primaryType}</p>
+                    {pokemon.secondaryType && <p>{pokemon.secondaryType}</p>}
+                </div>
+            </div> 
         </div>
     );
 }

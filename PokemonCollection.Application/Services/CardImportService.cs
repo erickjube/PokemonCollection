@@ -111,7 +111,7 @@ public class CardImportService : ICardImportService
             name: dto.Name,
             cardNumber: dto.Number,
             rarity: dto.Rarity ?? "Unknown",
-            imageUrl: dto.Images.Small,
+            imageUrl: dto.Images.Large,
             setName: dto.Set.Name,
             setPrintedTotal: dto.Set.PrintedTotal,
             setCode: dto.Set.Id

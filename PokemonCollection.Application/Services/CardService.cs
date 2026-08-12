@@ -10,16 +10,21 @@ namespace PokemonCollection.Application.Services;
 public class CardService : ICardService
 {
     private readonly ICardRepository _cardRepository;
+    private readonly IPokemonRepository _pokeRepository;
 
-    public CardService(ICardRepository cardRepository)
+    public CardService(ICardRepository cardRepository, IPokemonRepository pokemonRepository)
     {
          _cardRepository = cardRepository;
+        _pokeRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<CardResponseDto>> GetByPokemonIdAsync(int pokemonId ,QueryParameters parameters)
+    public async Task<PagedList<CardResponseDto>> GetByPokedexNumberAsync(int pokedexNumber ,QueryParameters parameters)
     {
+        var pokemon = await _pokeRepository.GetByPokedexNumberAsync(pokedexNumber);
+        if (pokemon is null) throw new Exception("Pokemon não encontrado");
+
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _cardRepository.GetByPokemonIdAsync(pokemonId, skip, parameters.PageSize);
+        var result = await _cardRepository.GetByPokemonIdAsync(pokemon.Id, skip, parameters.PageSize);
         if (result == null) throw new ArgumentException("Erro ao buscar cartas.");
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 
@@ -30,9 +35,10 @@ public class CardService : ICardService
                 Id = c.Id,
                 Name = c.Name,
                 CardNumber = c.CardNumber,
-                Rarity = c.Rarity.ToString(),
+                Rarity = c.Rarity,
                 ImageUrl = c.ImageUrl,
                 SetName = c.SetName,
+                SetPrintedTotal = c.SetPrintedTotal,
             }),
             TotalCount = result.TotalCount,
             PageNumber = parameters.PageNumber,

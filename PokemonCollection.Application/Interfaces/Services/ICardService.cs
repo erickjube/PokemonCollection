@@ -6,6 +6,6 @@ namespace PokemonCollection.Application.Interfaces.Services;
 
 public interface ICardService
 {
-    Task<PagedList<CardResponseDto>> GetByPokemonIdAsync(int pokemonId, QueryParameters parameters);
+    Task<PagedList<CardResponseDto>> GetByPokedexNumberAsync(int pokedexNumber, QueryParameters parameters);
     Task<CardResponseDto> GetByIdAsync(int cardId);
 }

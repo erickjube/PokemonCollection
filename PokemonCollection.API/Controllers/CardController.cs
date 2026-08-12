@@ -17,10 +17,10 @@ public class CardController : ControllerBase
         _cardService = cardService;
     }
 
-    [HttpGet("{pokemonId}/cards")]
-    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokemonId, [FromQuery] QueryParameters parameters)
+    [HttpGet("{pokedexNumber}/cards")]
+    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokedexNumber, [FromQuery] QueryParameters parameters)
     {
-        var metadata = await _cardService.GetByPokemonIdAsync(pokemonId, parameters);
+        var metadata = await _cardService.GetByPokedexNumberAsync(pokedexNumber, parameters);
         Response.AppendPaginationHeader(metadata);
         return Ok(metadata.Data);
     }

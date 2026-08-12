@@ -38,6 +38,8 @@ public class CollectionRepository : ICollectionRepository
     public async Task<CollectionEntry?> GetByPokemonIdAsync(int pokemonId)
     {
         return await _context.CollectionEntries
+        .Include(c => c.Card)
+        .ThenInclude(c => c.Pokemon)
         .FirstOrDefaultAsync(c => c.PokemonId == pokemonId);
     }
 

@@ -1,5 +1,4 @@
 ﻿using PokemonCollection.Application.DTOs.CollectionEntryDtos;
-using PokemonCollection.Application.DTOs.PokemonsDtos;
 using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
@@ -15,17 +14,20 @@ public class CollectionEntryService : ICollectionEntryService
     private readonly ICollectionRepository _collectionRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ICardRepository _cardRepository;
+    private readonly IPokemonRepository _pokemonRepository;
 
     public CollectionEntryService(ICollectionRepository collectionRepository, 
                                   IUnitOfWork unitOfWork, 
-                                  ICardRepository cardRepository)
+                                  ICardRepository cardRepository,
+                                  IPokemonRepository pokemonRepository)
     {
         _collectionRepository = collectionRepository;
         _unitOfWork = unitOfWork;
         _cardRepository = cardRepository;
+        _pokemonRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<CollectionCardResponseDto>> GetCollectionAsync(QueryParameters parameters)  //paginar
+    public async Task<PagedList<CollectionCardResponseDto>> GetCollectionAsync(QueryParameters parameters)  
     {
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
         var result = await _collectionRepository.GetAllAsync(skip, parameters.PageSize);
@@ -45,7 +47,10 @@ public class CollectionEntryService : ICollectionEntryService
                 Condition = c.Condition.ToString(),
                 Language = c.Language.ToString(),
                 Extra = c.Extra.ToString(),
-                DateAdded = c.DateAdded
+                DateAdded = c.DateAdded,
+                CardRarity = c.Card.Rarity,
+                CardNumber = c.Card.CardNumber,
+                SetPrintedTotal = c.Card.SetPrintedTotal
             }),
             TotalCount = result.TotalCount,
             PageNumber = parameters.PageNumber,
@@ -53,10 +58,14 @@ public class CollectionEntryService : ICollectionEntryService
         };
     }
 
-    public async Task<CollectionCardResponseDto> GetCollectionCardByIdAsync(int collectionEntryId)
+    public async Task<CollectionCardResponseDto> GetCollectionCardByPokedexNumberAsync(int pokedexNumber)
     {
-        var collection = await _collectionRepository.GetByIdAsync(collectionEntryId);
-        if (collection is null) throw new ArgumentException("Carta não encontrada");
+        var pokemon = await _pokemonRepository.GetByPokedexNumberAsync(pokedexNumber);
+        if (pokemon is null) throw new Exception("Pokemon não encontrado.");
+
+        var collection = await _collectionRepository.GetByPokemonIdAsync(pokemon.Id);
+        if (collection is null) return null;
+
         return new CollectionCardResponseDto
         {
             Id = collection.Id,
@@ -68,17 +77,23 @@ public class CollectionEntryService : ICollectionEntryService
             Condition = collection.Condition.ToString(),
             Language = collection.Language.ToString(),
             Extra = collection.Extra.ToString(),
-            DateAdded = collection.DateAdded
+            DateAdded = collection.DateAdded,
+            CardRarity = collection.Card.Rarity,
+            CardNumber = collection.Card.CardNumber,
+            SetPrintedTotal = collection.Card.SetPrintedTotal
         };
     }
 
-    public async Task SelectCardAsync(int pokemonId, CollectionCardRequestDto dto)
+    public async Task SelectCardAsync(int pokedexNumber, CollectionCardRequestDto dto)
     {
-        var entry = await _collectionRepository.GetByPokemonIdAsync(pokemonId);
+        var pokemon = await _pokemonRepository.GetByPokedexNumberAsync(pokedexNumber);
+        if (pokemon is null) throw new Exception("Pokemon não encontrado.");
+
+        var entry = await _collectionRepository.GetByPokemonIdAsync(pokemon.Id);
         var card = await _cardRepository.GetById(dto.CardId);
         if (card == null) throw new ArgumentException("Carta não encontrada!");
 
-        if (pokemonId != card.PokemonId) throw new ArgumentException("Pokemon passado diferente do pokemon da carta");
+        if (pokemon.Id != card.PokemonId) throw new ArgumentException("Pokemon passado diferente do pokemon da carta");
 
         var enumCondition = ParseEnum<ConditionCard>(dto.Condition);
         var enumLanguage = ParseEnum<LanguageCard>(dto.Language);
@@ -86,7 +101,7 @@ public class CollectionEntryService : ICollectionEntryService
 
         if (entry == null)
         {
-            entry = new CollectionEntry(dto.CardId, pokemonId, enumCondition, enumLanguage, enumExtra);
+            entry = new CollectionEntry(dto.CardId, pokemon.Id, enumCondition, enumLanguage, enumExtra);
             await _collectionRepository.AddAsync(entry);
         }
         else

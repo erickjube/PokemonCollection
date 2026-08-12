@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokemonCollection.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8665680b25efa55c72d20257c574029014dd6293")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ade7cbd7cb4f5732ffd576869c35de280f543a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokemonCollection.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokemonCollection.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

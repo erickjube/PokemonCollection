@@ -178,14 +178,14 @@
         }
       }
     },
-    "/api/CollectionEntry/{collectionId}": {
+    "/api/CollectionEntry/{pokedexNumber}": {
       "get": {
         "tags": [
           "CollectionEntry"
         ],
         "parameters": [
           {
-            "name": "collectionId",
+            "name": "pokedexNumber",
             "in": "path",
             "required": true,
             "schema": {
@@ -217,6 +217,48 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "CollectionEntry"
+        ],
+        "parameters": [
+          {
+            "name": "pokedexNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CollectionCardRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CollectionCardRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CollectionCardRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CollectionEntry/{collectionId}": {
       "patch": {
         "tags": [
           "CollectionEntry"
@@ -272,48 +314,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/CollectionEntry/{pokemonId}": {
-      "put": {
-        "tags": [
-          "CollectionEntry"
-        ],
-        "parameters": [
-          {
-            "name": "pokemonId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CollectionCardRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CollectionCardRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CollectionCardRequestDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -612,6 +612,18 @@
           "dateAdded": {
             "type": "string",
             "format": "date-time"
+          },
+          "cardRarity": {
+            "type": "string",
+            "nullable": true
+          },
+          "cardNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "setPrintedTotal": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

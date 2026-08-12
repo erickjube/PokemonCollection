@@ -104,32 +104,6 @@
   },
   {
     "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
-    "Method": "GetById",
-    "RelativePath": "api/CollectionEntry/{collectionId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "collectionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardResponseDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
     "Method": "UpdateInfo",
     "RelativePath": "api/CollectionEntry/{collectionId}",
     "HttpMethod": "PATCH",
@@ -167,14 +141,40 @@
   },
   {
     "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "GetById",
+    "RelativePath": "api/CollectionEntry/{pokedexNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pokedexNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
     "Method": "AddCardToCollection",
-    "RelativePath": "api/CollectionEntry/{pokemonId}",
+    "RelativePath": "api/CollectionEntry/{pokedexNumber}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pokemonId",
+        "Name": "pokedexNumber",
         "Type": "System.Int32",
         "IsRequired": true
       },

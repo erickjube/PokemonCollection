@@ -25,17 +25,17 @@ public class CollectionEntryController : ControllerBase
         return Ok(metadata.Data);
     }
 
-    [HttpGet("{collectionId}")]
-    public async Task<ActionResult<CollectionCardResponseDto>> GetById(int collectionId)
+    [HttpGet("{pokedexNumber}")]
+    public async Task<ActionResult<CollectionCardResponseDto>> GetById(int pokedexNumber)
     {
-        var collection = await _collectionService.GetCollectionCardByIdAsync(collectionId);
+        var collection = await _collectionService.GetCollectionCardByPokedexNumberAsync(pokedexNumber);
         return Ok(collection);
     }
 
-    [HttpPut("{pokemonId}")]
-    public async Task<ActionResult> AddCardToCollection(int pokemonId, CollectionCardRequestDto dto)
+    [HttpPut("{pokedexNumber}")]
+    public async Task<ActionResult> AddCardToCollection(int pokedexNumber, CollectionCardRequestDto dto)
     {
-        await _collectionService.SelectCardAsync(pokemonId, dto);
+        await _collectionService.SelectCardAsync(pokedexNumber, dto);
         return NoContent();
     }
 

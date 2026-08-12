@@ -10,7 +10,7 @@ public class CollectionEntry
     public Pokemon Pokemon { get; private set; }
 
     public int CardId { get; private set; }
-    public Card Card { get; private set; } = null!;
+    public Card Card { get; private set; } 
 
     public ConditionCard Condition { get; private set; } = ConditionCard.New;
     public LanguageCard Language { get; private set; } = LanguageCard.Portuguese;

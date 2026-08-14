@@ -1,12 +1,17 @@
 import Header from "../../components/Headers/Header";
 import "./PokemonDetails.css";
+
 import PokemonInfo from "../../components/PokemonInfo/PokemonInfo";
 import CardInfo from "../../components/CardInfo/CardInfo";
+
 import {useState, useEffect} from "react";
+
 import { getPokemonByPokedexNumber } from "../../services/PokemonService";
 import { getCardByPokedexNumber } from "../../services/CardService";
+
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PokemonDetails() {
     const { pokedexNumber } = useParams();
@@ -14,6 +19,8 @@ function PokemonDetails() {
     const [pokemon, setPokemon] = useState(null);
     const [card, setCard] = useState(null);
     
+    const navigate = useNavigate();
+
     async function carregarDetalhesPokemon() {
         try {
             const pokemon = await getPokemonByPokedexNumber(pokedexNumber);
@@ -39,6 +46,15 @@ function PokemonDetails() {
         carregarDetalhesCard();
     }, [pokedexNumber]);
 
+    function handleRemove() {
+        console.log("Remover carta:", card);
+    }
+
+    function handleReplace() {
+        navigate(`/cards/${pokedexNumber}`);
+    }
+
+
     return (
         <>
             <Header />
@@ -49,7 +65,7 @@ function PokemonDetails() {
                 
                 <main className="pokemon-details-container">
                     <PokemonInfo pokemon={pokemon} />
-                    <CardInfo card={card} />
+                    <CardInfo card={card} onRemove={handleRemove} onReplace={handleReplace}/>
                 </main>
             </div>
         </>

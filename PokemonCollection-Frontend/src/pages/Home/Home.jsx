@@ -159,10 +159,8 @@ function Home() {
                 {!loading && !error && pokemons.length === 0 && ( <div className="loading">Nenhum Pokémon encontrado.</div> )}
 
                 {/* Renderiza os pokémons caso não haja loading, erro e haja pokémons */}
-                {!loading && !error && pokemons.length > 0 && pokemons.map(pokemon => ( <PokemonHome 
-                    key={pokemon.pokedexNumber} 
-                    pokemon={pokemon} 
-                    onClick={() => handlePokemonClick(pokemon)} /> ))
+                {!loading && !error && pokemons.length > 0 && pokemons.map(pokemon => ( 
+                    <PokemonHome key={pokemon.pokedexNumber} pokemon={pokemon} onClick={() => handlePokemonClick(pokemon)} /> ))
                 }
 
                 </section>

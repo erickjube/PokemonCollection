@@ -1,4 +1,5 @@
 import "./CardInfo.css";
+
 import { useState } from "react";
 
 function CardInfo({ card, onRemove, onReplace }) {
@@ -9,7 +10,7 @@ function CardInfo({ card, onRemove, onReplace }) {
         card === null ? (
             <div className="card-info-empty">
                 <div className="card-place-empty">
-                    <button>
+                    <button onClick={() => {setShowDetails(false); onReplace(); }}>
                         <svg 
                             version="1.0" 
                             xmlns="http://www.w3.org/2000/svg"
@@ -97,10 +98,11 @@ function CardInfo({ card, onRemove, onReplace }) {
 
                                     <div className="card-modal-actions">
                                         <button className="btn-remove" onClick={onRemove}>Remover da coleção</button>
-
+                                        
                                         <button className="btn-replace" onClick={() => {setShowDetails(false); onReplace(); }}>
-                                            Substituir Carta
+                                           Substituir Carta
                                         </button>
+                                        
                                     </div>
                                 </div>
                             </div>

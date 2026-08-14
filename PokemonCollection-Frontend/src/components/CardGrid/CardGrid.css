@@ -1,0 +1,21 @@
+.card-grid-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-grid-image {
+    width: 200px;
+    height: auto;
+    transition: .2s;
+}
+
+.card-grid-image:hover {
+    transform: translateY(-5px);
+}
+
+.card-grid-info {
+    margin-top: 5px;
+    font-weight: bold;
+}

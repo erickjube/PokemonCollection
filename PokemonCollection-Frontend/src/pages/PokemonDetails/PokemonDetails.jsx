@@ -7,7 +7,7 @@ import CardInfo from "../../components/CardInfo/CardInfo";
 import {useState, useEffect} from "react";
 
 import { getPokemonByPokedexNumber } from "../../services/PokemonService";
-import { getCardByPokedexNumber } from "../../services/CardService";
+import { getCardByPokedexNumber } from "../../services/CollectionService";
 
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";

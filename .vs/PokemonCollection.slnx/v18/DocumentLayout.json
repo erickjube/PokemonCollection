@@ -122,8 +122,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\Interfaces\\Repositories\\ICardRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T18:44:44.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T18:44:44.109Z"
             },
             {
               "$type": "Document",
@@ -135,8 +134,7 @@
               "RelativeToolTip": "PokemonCollection.Application\\Filters\\CardFilter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T18:38:31.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T18:38:31.821Z"
             },
             {
               "$type": "Document",
@@ -148,8 +146,7 @@
               "RelativeToolTip": "PokemonCollection.Domain\\Entities\\Card.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwBIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T18:36:14.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T18:36:14.49Z"
             },
             {
               "$type": "Document",
@@ -159,7 +156,7 @@
               "RelativeDocumentMoniker": "PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
               "ToolTip": "C:\\Users\\erick\\Documents\\00Faculdade\\Estudos\\CSharp\\0 - Projetos\\PokemonCollection\\PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
               "RelativeToolTip": "PokemonCollection.Infrastructure\\Repositories\\CardRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAgwBwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-17T18:34:08.245Z",
               "EditorCaption": ""

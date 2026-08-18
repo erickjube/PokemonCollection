@@ -37,6 +37,18 @@ function SelectCard() {
         carregarCards(1, text, cardNumber, collectionName);
     };
 
+    const handleClear = () => {
+        setText("");
+        setCardNumber("");
+        setCollectionName("");
+        
+        if (page === 1) {
+            carregarCards(1, "", "", "");
+        } else {
+            setPage(1);
+        }
+    };
+
     async function carregarCards(currentPage = page, search = "", cardNumberInput = "", collectionName = "") {
         setLoading(true);
         setError(null);
@@ -86,7 +98,7 @@ function SelectCard() {
 
                         <div className="search-box-btn">
                             <button className="btn-search" onClick={handleSearch}>Buscar</button>
-                            <button className="btn-clear">Limpar</button>  
+                            <button className="btn-clear" onClick={handleClear}>Limpar</button>  
                         </div>
                     
                     </div>

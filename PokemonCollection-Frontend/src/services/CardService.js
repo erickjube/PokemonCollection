@@ -1,12 +1,4 @@
-const API_URL = "https://localhost:7238/api/CollectionEntry";
-
 const API_CARDS_URL = "https://localhost:7238/api/Card"
-
-export async function getCardByPokedexNumber(pokedexNumber) {
-    const response = await fetch(`${API_URL}/${pokedexNumber}`);
-    if (!response.ok) throw new Error("Erro ao buscar a carta.");
-    return await response.json();
-}
 
 export async function getCardsByPokedexNumber(pokedexNumber, page = 1, pageSize = 25, search = "", cardNumber = "", setPrintedTotal= "", setName = "") {
     let url = `${API_CARDS_URL}/${pokedexNumber}/cards`;

@@ -1,4 +1,5 @@
 ﻿using PokemonCollection.Application.DTOs.CardsDtos;
+using PokemonCollection.Application.Filters;
 using PokemonCollection.Application.Helpers;
 using PokemonCollection.Application.Interfaces.Repositories;
 using PokemonCollection.Application.Interfaces.Services;
@@ -18,13 +19,13 @@ public class CardService : ICardService
         _pokeRepository = pokemonRepository;
     }
 
-    public async Task<PagedList<CardResponseDto>> GetByPokedexNumberAsync(int pokedexNumber ,QueryParameters parameters)
+    public async Task<PagedList<CardResponseDto>> GetByPokedexNumberAsync(int pokedexNumber ,QueryParameters parameters, CardFilter filter)
     {
         var pokemon = await _pokeRepository.GetByPokedexNumberAsync(pokedexNumber);
         if (pokemon is null) throw new Exception("Pokemon não encontrado");
 
         var skip = (parameters.PageNumber - 1) * parameters.PageSize;
-        var result = await _cardRepository.GetByPokemonIdAsync(pokemon.Id, skip, parameters.PageSize);
+        var result = await _cardRepository.GetByPokemonIdAsync(pokemon.Id, skip, parameters.PageSize, filter);
         if (result == null) throw new ArgumentException("Erro ao buscar cartas.");
         ValidatePagination.Validate(parameters.PageNumber, parameters.PageSize, result.TotalCount);
 

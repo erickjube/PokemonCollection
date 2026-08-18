@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PokemonCollection.API.Header;
 using PokemonCollection.Application.DTOs.CardsDtos;
+using PokemonCollection.Application.Filters;
 using PokemonCollection.Application.Interfaces.Services;
 using PokemonCollection.Application.Pagination;
 
@@ -18,9 +19,9 @@ public class CardController : ControllerBase
     }
 
     [HttpGet("{pokedexNumber}/cards")]
-    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokedexNumber, [FromQuery] QueryParameters parameters)
+    public async Task<ActionResult<IEnumerable<CardResponseDto>>> GetByPokemonId(int pokedexNumber, [FromQuery] QueryParameters parameters, [FromQuery] CardFilter filter)
     {
-        var metadata = await _cardService.GetByPokedexNumberAsync(pokedexNumber, parameters);
+        var metadata = await _cardService.GetByPokedexNumberAsync(pokedexNumber, parameters, filter);
         Response.AppendPaginationHeader(metadata);
         return Ok(metadata.Data);
     }

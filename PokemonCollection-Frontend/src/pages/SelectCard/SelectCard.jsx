@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 
 import {useState, useEffect} from "react";
 
-
 function SelectCard() {
     const { pokedexNumber } = useParams()
 
@@ -20,13 +19,34 @@ function SelectCard() {
     const [error, setError] = useState(null);
 
     const [page, setPage] = useState(1);
+    const [text, setText] = useState('');
+    const [cardNumber, setCardNumber] = useState("");
+    const [collectionName, setCollectionName] = useState("");
 
-    async function carregarCards(pageAtual = page) {
+
+    const handleChange = (event) => {
+       setText(event.target.value);
+    };
+
+    const handleSetNameChange = (event) => {
+        setCollectionName(event.target.value);
+    };
+
+     const handleSearch = () => {
+        setPage(1);
+        carregarCards(1, text, cardNumber, collectionName);
+    };
+
+    async function carregarCards(currentPage = page, search = "", cardNumberInput = "", collectionName = "") {
         setLoading(true);
         setError(null);
 
         try {
-            const result = await getCardsByPokedexNumber(pokedexNumber, pageAtual)
+            const pieces = cardNumberInput.split("/");
+            const number = pieces[0]?.trim() || "";
+            const setPrintedTotal = pieces[1]?.trim() || "";
+
+            const result = await getCardsByPokedexNumber(pokedexNumber, currentPage, 25, search, number, setPrintedTotal, collectionName)
             setCards(result.data);
             setPagination(result.pagination);
         }
@@ -40,7 +60,7 @@ function SelectCard() {
     }
 
     useEffect(() => {
-        carregarCards(page);
+        carregarCards(page, text, cardNumber, collectionName);
     }, [page]);
 
     return (
@@ -56,31 +76,16 @@ function SelectCard() {
                     <div className="search-box">
                         <h1 className="search-box-h1">Filtros</h1>
                         <p className="search-box-p">Nome da Carta</p>
-                        <input className="search-box-input" type="text" placeholder="Pesquisar Carta..."/>
+                        <input className="search-box-input" type="text" value={text}  onChange={handleChange} placeholder="Pesquisar Carta..."/>
 
                         <p className="search-box-p">Numero da Carta</p>
-                        <input className="search-box-input" type="text" placeholder="Ex: 79/217, 14/86..."/>
+                        <input className="search-box-input" type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} placeholder="Ex: 79/217, 14/86..."/>
 
                         <p className="search-box-p">Nome da Coleção</p>
-                        <input className="search-box-input" type="text" placeholder="Ex: Ascended Heroes, Pitch Black..."/>
-
-                        <p className="search-box-p">Raridade</p>
-                        <select className="search-box-select">
-                            <option value="">Todas</option>
-                        </select>
-
-                        <p className="search-box-p">Lingua</p>
-                        <select className="search-box-select">
-                            <option value="">Todas</option>
-                        </select>
-
-                        <p className="search-box-p">Extra</p>  
-                        <select className="search-box-select">
-                            <option value="">Nenhum</option>
-                        </select>
+                        <input className="search-box-input" type="text" value={collectionName} onChange={(e) => setCollectionName(e.target.value)} placeholder="Ex: Ascended Heroes, Pitch Black..."/>
 
                         <div className="search-box-btn">
-                            <button className="btn-search">Buscar</button>
+                            <button className="btn-search" onClick={handleSearch}>Buscar</button>
                             <button className="btn-clear">Limpar</button>  
                         </div>
                     
@@ -144,7 +149,7 @@ function SelectCard() {
 
                                     <button onClick={() => { 
                                             setPage(page + 1); 
-                                            carregarPokemons(page + 1); }} 
+                                            carregarCards(page + 1); }} 
                                             disabled={pagination && !pagination.hasNext}
                                             aria-label="Próxima página" 
                                             title="Próxima página">
@@ -163,7 +168,7 @@ function SelectCard() {
 
                                     <button onClick={() => {
                                             setPage(pagination.totalPages); 
-                                            carregarPokemons(pagination.totalPages); }}
+                                            carregarCards(pagination.totalPages); }}
                                             disabled={!pagination || page === pagination.totalPages}
                                             aria-label="Última página"
                                             title="Última página">

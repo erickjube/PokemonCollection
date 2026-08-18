@@ -8,10 +8,18 @@ export async function getCardByPokedexNumber(pokedexNumber) {
     return await response.json();
 }
 
-export async function getCardsByPokedexNumber(pokedexNumber, page = 1, pageSize = 25) {
+export async function getCardsByPokedexNumber(pokedexNumber, page = 1, pageSize = 25, search = "", cardNumber = "", setPrintedTotal= "", setName = "") {
     let url = `${API_CARDS_URL}/${pokedexNumber}/cards`;
     url += `?PageNumber=${page}&PageSize=${pageSize}`;
     
+    if (search) url += `&Search=${encodeURIComponent(search)}`;
+
+    if (cardNumber) url += `&CardNumber=${encodeURIComponent(cardNumber)}`;
+
+    if (setPrintedTotal) url += `&SetPrintedTotal=${encodeURIComponent(setPrintedTotal)}`;
+
+    if (setName) url += `&SetName=${encodeURIComponent(setName)}`;
+
     const response = await fetch(url)
     if (!response.ok) throw new Error("Erro ao buscar as cartas.");
 

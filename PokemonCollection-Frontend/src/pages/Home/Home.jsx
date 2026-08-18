@@ -41,7 +41,7 @@ function Home() {
         setSort(event.target.value);
     };
 
-    const handleBuscar = () => {
+    const handleSearch = () => {
         setPage(1);
         carregarPokemons(1, text, generation, type, region, sort);
     };
@@ -51,13 +51,13 @@ function Home() {
         window.location.href = `/pokemon/${pokemon.pokedexNumber}`;
     }
 
-    async function carregarPokemons(pageAtual = page, pesquisa = "", geracao = "", tipo = "", regiao = "", ordenacao = "pokedex-asc") {
+    async function carregarPokemons(currentPage = page, search = "", generation = "", type = "", region = "", sort = "pokedex-asc") {
 
         setLoading(true);
         setError(null);
 
         try {
-            const result = await getPokemons(pageAtual, 50, pesquisa, geracao, tipo, regiao, ordenacao);
+            const result = await getPokemons(currentPage, 50, search, generation, type, region, sort);
             setPokemons(result.data);
             setPagination(result.pagination);
         }
@@ -84,7 +84,7 @@ function Home() {
 
                     <input type="text" value={text} onChange={handleChange} placeholder="Pesquisar Pokémon..."/>
 
-                    <button onClick={handleBuscar}>Buscar</button>
+                    <button onClick={handleSearch}>Buscar</button>
 
                     <select value={sort} onChange={handleSortChange}>
                         <option value="pokedex-asc">Numeração Pokédex [0-9]</option>

@@ -8,13 +8,12 @@
     align-items: center;
     background-color: #bdbdbd;
     width: 312px;
-    height: 570px;
+    height: 360px;
     padding: 10px 30px;
     border-radius: 25px;
-
 }
 
-.search-box-input, .search-box-select{
+.search-box-input, .search-box-select {
     padding: 8px;
     border-radius: 5px;
     border: 1px solid black;

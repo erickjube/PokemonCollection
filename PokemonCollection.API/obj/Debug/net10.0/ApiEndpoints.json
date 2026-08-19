@@ -145,22 +145,6 @@
   },
   {
     "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
-    "Method": "Delete",
-    "RelativePath": "api/CollectionEntry/{collectionId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "collectionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
     "Method": "GetById",
     "RelativePath": "api/CollectionEntry/{pokedexNumber}",
     "HttpMethod": "GET",
@@ -201,6 +185,22 @@
       {
         "Name": "dto",
         "Type": "PokemonCollection.Application.DTOs.CollectionEntryDtos.CollectionCardRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokemonCollection.API.Controllers.CollectionEntryController",
+    "Method": "Delete",
+    "RelativePath": "api/CollectionEntry/{pokedexNumber}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pokedexNumber",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

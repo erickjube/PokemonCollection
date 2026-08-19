@@ -140,9 +140,12 @@ public class CollectionEntryService : ICollectionEntryService
         await _unitOfWork.SaveChangesAsync();
     }
 
-    public async Task DeleteCardAsync(int collectionId)
+    public async Task DeleteCardAsync(int pokedexNumber)
     {
-        var entry = await _collectionRepository.GetByIdAsync(collectionId);
+        var pokemon = await _pokemonRepository.GetByPokedexNumberAsync(pokedexNumber);
+        if (pokemon is null) throw new Exception("Pokemon não encontrado.");
+
+        var entry = await _collectionRepository.GetByPokemonIdAsync(pokemon.Id);
         if (entry is null) throw new ArgumentException("Carta não encontrada.");
 
         await _collectionRepository.DeleteAsync(entry);

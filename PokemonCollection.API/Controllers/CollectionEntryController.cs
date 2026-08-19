@@ -46,10 +46,10 @@ public class CollectionEntryController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{collectionId}")]
-    public async Task<ActionResult> Delete(int collectionId)
+    [HttpDelete("{pokedexNumber}")]
+    public async Task<ActionResult> Delete(int pokedexNumber)
     {
-        await _collectionService.DeleteCardAsync(collectionId);
+        await _collectionService.DeleteCardAsync(pokedexNumber);
         return NoContent();
     }
 }

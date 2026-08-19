@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import { AddCardToCollection } from "../../services/CollectionService";
+import { addCardToCollection } from "../../services/CollectionService";
 
 
 function CardGrid({ card }) {
@@ -37,7 +37,7 @@ function CardGrid({ card }) {
             setLoading(true);
             setError("");
 
-            await AddCardToCollection(pokedexNumber, {
+            await addCardToCollection(pokedexNumber, {
                 cardId: card.id,
                 condition: condition,
                 language: language,

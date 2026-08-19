@@ -7,7 +7,7 @@ import CardInfo from "../../components/CardInfo/CardInfo";
 import {useState, useEffect} from "react";
 
 import { getPokemonByPokedexNumber } from "../../services/PokemonService";
-import { getCardByPokedexNumber } from "../../services/CollectionService";
+import { getCardByPokedexNumber, removeCardFromCollection } from "../../services/CollectionService";
 
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -15,13 +15,16 @@ import { useNavigate } from "react-router-dom";
 
 function PokemonDetails() {
     const { pokedexNumber } = useParams();
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     
     const [pokemon, setPokemon] = useState(null);
     const [card, setCard] = useState(null);
     
     const navigate = useNavigate();
 
-    async function carregarDetalhesPokemon() {
+     async function carregarDetalhesPokemon() {
         try {
             const pokemon = await getPokemonByPokedexNumber(pokedexNumber);
             setPokemon(pokemon);
@@ -38,6 +41,7 @@ function PokemonDetails() {
         }
         catch (error) {
             console.error("Erro ao buscar os detalhes do card:", error);
+            setCard(null);
         }
     }
 
@@ -46,14 +50,26 @@ function PokemonDetails() {
         carregarDetalhesCard();
     }, [pokedexNumber]);
 
-    function handleRemove() {
-        console.log("Remover carta:", card);
-    }
+    async function handleRemove() {
+        try {
+            setLoading(true);
+            setError("");
+
+            await removeCardFromCollection(pokedexNumber)
+            await carregarDetalhesCard();
+        }
+        catch (error) {
+            console.error(error);
+            setError("Não foi possível remover a carta da coleção.");
+        } 
+        finally {
+            setLoading(false);
+        }
+    };
 
     function handleReplace() {
         navigate(`/cards/${pokedexNumber}`);
     }
-
 
     return (
         <>

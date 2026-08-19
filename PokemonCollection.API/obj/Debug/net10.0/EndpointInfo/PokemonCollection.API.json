@@ -285,6 +285,27 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "CollectionEntry"
+        ],
+        "parameters": [
+          {
+            "name": "pokedexNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/CollectionEntry/{collectionId}": {
@@ -322,27 +343,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "CollectionEntry"
-        ],
-        "parameters": [
-          {
-            "name": "collectionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"

@@ -97,7 +97,7 @@ function CardInfo({ card, onRemove, onReplace }) {
                                     </p>
 
                                     <div className="card-modal-actions">
-                                        <button className="btn-remove" onClick={onRemove}>Remover da coleção</button>
+                                        <button className="btn-remove" onClick={() => {setShowDetails(false); ; onRemove()}}>Remover da coleção</button>
                                         
                                         <button className="btn-replace" onClick={() => {setShowDetails(false); onReplace(); }}>
                                            Substituir Carta

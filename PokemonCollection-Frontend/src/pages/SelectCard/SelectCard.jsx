@@ -83,7 +83,7 @@ function SelectCard() {
                     <button className="btn-back">Voltar</button>
                 </Link>
                 
-                <div className="select-card-body">
+                <main className="select-card-body">
 
                     <div className="search-box">
                         <h1 className="search-box-h1">Filtros</h1>
@@ -208,7 +208,7 @@ function SelectCard() {
                                 
                         </section>
                     </div>
-                </div>
+                </main>
                 
             </div>
             

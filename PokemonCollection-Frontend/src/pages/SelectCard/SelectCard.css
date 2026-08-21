@@ -14,6 +14,8 @@
 }
 
 .search-box-input, .search-box-select {
+    flex: 1;
+    min-width: 0;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid black;
@@ -104,18 +106,45 @@
     flex-direction: row;
     margin-top: 40px;
     width: 100%;
+    min-width: 0;
 }
 
 .select-card-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 40px;
     width: 100%;
-    margin:0 0 20px 30px;
+    min-width: 0;
+    padding: 0 20px;
 }
 
 .select-card-main {
-    display: flex;
-    flex-direction: column;
+    flex: 1;
+    min-width: 0;
     margin-bottom: 50px;
+}
+
+@media (max-width: 700px) {
+    .select-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .search-box {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .select-card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .select-card-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }

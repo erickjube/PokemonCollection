@@ -1,8 +1,10 @@
 import "./Home.css";
+
 import Header from "../../components/Headers/Header";
 import PokemonHome from "../../components/PokemonHome/PokemonHome";
+import { getPokemons } from "../../services/PokemonService";
+
 import { useState, useEffect } from "react";
-import { getPokemons } from "../../services/pokemonService";
 
 function Home() {
 
@@ -72,7 +74,7 @@ function Home() {
 
     useEffect(() => {
         carregarPokemons(page, text, generation, type, region, sort);
-    }, []);
+    }, [page]);
 
     return (
         <>

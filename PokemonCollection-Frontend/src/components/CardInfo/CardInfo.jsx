@@ -1,0 +1,117 @@
+import "./CardInfo.css";
+
+import { useState } from "react";
+
+function CardInfo({ card, onRemove, onReplace }) {
+    const [showPreview, setShowPreview] = useState(false);
+    const [showDetails, setShowDetails] = useState(false);
+
+    return (
+        card === null ? (
+            <div className="card-info-empty">
+                <div className="card-place-empty">
+                    <button onClick={() => {setShowDetails(false); onReplace(); }}>
+                        <svg 
+                            version="1.0" 
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="50pt"
+                            height="50pt" 
+                            viewBox="0 0 512.000000 512.000000"
+                            preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)">
+                                    <path d="M2426 5104 c-148 -33 -256 -94 -359 -203 -75 -80 -115 -147 -154
+                                            -256 l-28 -80 -3 -662 -3 -662 -657 -4 c-594 -3 -663 -5 -717 -21 -234 -69
+                                            -406 -237 -477 -466 -33 -107 -33 -273 0 -380 71 -229 243 -397 477 -466 54
+                                            -16 123 -18 717 -21 l657 -4 3 -662 3 -662 28 -80 c42 -119 81 -181 171 -271
+                                            91 -90 153 -130 271 -170 71 -25 94 -28 205 -28 108 1 136 4 205 27 186 61
+                                            327 185 411 362 63 130 64 142 64 847 l0 637 658 3 c587 3 663 6 717 21 139
+                                            40 265 124 356 237 60 75 89 131 121 230 33 106 33 273 0 380 -71 229 -243
+                                            397 -477 466 -54 16 -123 18 -717 21 l-658 4 0 637 c0 705 -1 717 -64 847
+                                            -112 235 -327 379 -586 390 -64 3 -118 0 -164 -11z"
+                                    />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>  
+        ) : (
+            <div className="card-info">
+                <div className="card-title">
+                    <h1>{card.cardName}</h1>
+                    <h1>({card.cardNumber}/{card.setPrintedTotal})</h1>
+                </div>
+
+                <div className="card-image" 
+                    onMouseEnter={() => setShowPreview(true)} 
+                    onMouseLeave={() => setShowPreview(false)}>
+
+                    <img src={card.imageUrl} alt={card.cardName} />
+
+                    {showPreview && (
+                        <div className="card-preview" 
+                            onMouseEnter={() => setShowPreview(true)}
+                            onMouseLeave={() => setShowPreview(false)}
+                            onClick={() => setShowDetails(true)}>
+                            <img src={card.imageUrl} alt={card.cardName} />
+                        </div>
+                    )}
+                </div>
+
+                <div className="card-infos">
+                    <p>{card.cardRarity}</p>
+                    <p>{card.setName}</p>
+                </div>
+
+                {showDetails && (
+                    <div className="card-modal-overlay" onClick={() => setShowDetails(false)} >
+                        <div className="card-modal" onClick={(e) => e.stopPropagation()} >   
+                            <button className="card-modal-close" onClick={() => setShowDetails(false)} >
+                                ×
+                            </button>
+
+                            <div className="card-modal-content">
+
+                                <img src={card.imageUrl} alt={card.cardName} />
+
+                                <div className="card-modal-info">
+                                    <h2>{card.cardName}</h2>
+
+                                    <p>
+                                        <strong>Condição:</strong>{" "}
+                                        {card.condition}
+                                    </p>
+
+                                    <p>
+                                        <strong>Língua:</strong>{" "}
+                                        {card.language}
+                                    </p>
+
+                                    <p>
+                                        <strong>Extra:</strong>{" "}
+                                        {card.extra}
+                                    </p>
+
+                                    <p>
+                                        <strong>Adicionada em:</strong>{" "}
+                                        {new Date(card.dateAdded).toLocaleDateString("pt-BR")}                    
+                                    </p>
+
+                                    <div className="card-modal-actions">
+                                        <button className="btn-remove" onClick={() => {setShowDetails(false); ; onRemove()}}>Remover da coleção</button>
+                                        
+                                        <button className="btn-replace" onClick={() => {setShowDetails(false); onReplace(); }}>
+                                           Substituir Carta
+                                        </button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        )
+    );
+}
+
+export default CardInfo;

@@ -1,6 +1,5 @@
 ﻿using PokemonCollection.Application.DTOs.CardsDtos;
 using PokemonCollection.Application.Interfaces.Services;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace PokemonCollection.Infrastructure.ExternalApis;
@@ -23,14 +22,17 @@ public class PokemonTcgClient : IPokemonTcgClient
         Console.WriteLine($"Status: {(int)response.StatusCode} - {response.StatusCode}");
 
         var content = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(content);
-        response.EnsureSuccessStatusCode();
 
-        return System.Text.Json.JsonSerializer.Deserialize<CardListResponseDto>(content, new JsonSerializerOptions
+        if (!response.IsSuccessStatusCode)
+            throw new HttpRequestException($"API retornou {(int)response.StatusCode} ({response.StatusCode})");
+
+        var result = JsonSerializer.Deserialize<CardListResponseDto>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         });
 
-        //return await _httpClient.GetFromJsonAsync<CardListResponseDto>(url);
+        if (result == null) throw new InvalidOperationException($"Resposta inválida da API na página {page}.");
+        
+        return result;
     }
 }

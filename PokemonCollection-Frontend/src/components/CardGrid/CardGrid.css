@@ -1,0 +1,127 @@
+.card-grid-item {
+    display: grid;
+    justify-content: center;
+    width: 255px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #d4d4cb;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.6);
+    position: relative;
+    cursor: pointer;
+}
+
+.card-grid-image-container {
+    position: relative;
+}
+
+.card-grid-image {
+    border: 1px solid rgb(89, 87, 87);
+    border-radius: 10px;
+    width: 200px;
+    display: block;
+    height: auto;
+    transition: .2s;
+}
+
+.card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.card-grid-image-container:hover .card-hover-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.add-card-button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #ff3040;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-card-button:hover {
+    transform: scale(1.1);
+}
+
+.card-grid-info {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.add-card-option {
+    width: 200px;
+    height: auto;
+    border: 1px solid #c90808;
+}
+
+.card-modal {
+    position: relative;
+    width: 700px;
+    max-width: 90vw;
+    padding: 30px;
+    background: #cfcece;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-modal-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.card-modal-content > img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.card-grid-modal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.card-grid-modal-info h2 {
+    margin-bottom: 20px;
+}
+
+.card-grid-modal-info p {
+    margin: 10px 0;
+}
+
+.btn-add-collection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    background-color: #c90808;
+    transition: 0.2s;
+
+}
+
+.btn-add-collection:hover {
+    background-color: #f74141;
+}

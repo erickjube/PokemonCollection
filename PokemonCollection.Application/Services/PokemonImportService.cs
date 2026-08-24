@@ -43,7 +43,7 @@ public class PokemonImportService : IPokemonImportService
         await _unitOfWork.SaveChangesAsync();
     }
 
-    private Pokemon CreatePokemon(PokemonResponseDto details, PokemonSpeciesResponseDto species)
+    private Pokemon CreatePokemon(PokemonImportResponseDto details, PokemonSpeciesResponseDto species)
     {
         var image = details.Sprites.Other.OfficialArtwork.FrontDefault;
         var enumRegion = GetRegion(species.Generation.Name);

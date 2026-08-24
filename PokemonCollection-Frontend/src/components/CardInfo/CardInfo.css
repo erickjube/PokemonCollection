@@ -1,0 +1,244 @@
+.card-info, .card-place-empty, .card-info-empty {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.8);
+}
+
+
+.card-info {
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 530px;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgb(212, 208, 208);
+}
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 100%;
+    gap: 15px;
+}
+
+.card-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    color: Black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 380px;
+    border-radius: 10px;
+}
+
+.card-image img {
+    width: min(250px, 100%);
+    height: auto;
+    display: block;
+}
+
+.card-preview {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-preview img {
+    width: 400px;
+    max-width: 40vw;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+    
+.card-preview:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+.card-info-empty {
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #a8a8a8;
+    min-height: 530px;
+    max-width: 450px;
+}
+
+.card-place-empty {
+    justify-content: center;
+    align-items: center;
+    background-color: #bdbdbd;
+    min-height: 450px;
+    max-width: 300px;
+}
+
+.card-place-empty button {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    background-color: white;
+    transition: 0.2s;
+}
+
+.card-place-empty button:hover {
+    background-color: #a8a8a8;
+    color: white;
+    border: 2px solid black;
+}
+
+.card-place-empty svg {
+    width: 50px;
+    height: 50px;
+}
+
+
+.card-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.card-modal {
+    position: relative;
+    width: 700px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    background: #cfcece;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-modal-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.card-modal-content > img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.card-modal-info {
+    flex: 1;
+}
+
+.card-modal-info h2 {
+    margin-bottom: 20px;
+}
+
+.card-modal-info p {
+    margin: 10px 0;
+}
+
+.card-modal-close {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.card-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.card-modal-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+.btn-remove {
+    background: #d32f2f;
+    transition: 0.2s;
+}
+
+.btn-remove:hover {
+    background-color: #f74141;
+}
+
+.btn-replace {
+    background: #1976d2;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.btn-replace:hover {
+    background: #3c9cfc;
+}
+
+@media (max-width: 600px) {
+
+    .card-modal {
+        width: 95vw;
+        padding: 20px;
+    }
+
+    .card-modal-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-modal-content > img {
+        width: min(250px, 80vw);
+    }
+
+    .card-modal-actions {
+        flex-direction: column;
+    }
+
+    .card-modal-actions button {
+        width: 100%;
+    }
+}

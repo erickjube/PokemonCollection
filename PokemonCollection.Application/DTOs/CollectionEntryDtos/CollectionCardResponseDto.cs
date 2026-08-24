@@ -12,4 +12,7 @@ public class CollectionCardResponseDto
     public string Language { get; set; }
     public string Extra { get; set; }
     public DateTime DateAdded { get; set; } = DateTime.UtcNow;
+    public string CardRarity { get; set; }
+    public string CardNumber { get; set; }
+    public int SetPrintedTotal { get; set; }
 }

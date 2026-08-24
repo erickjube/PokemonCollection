@@ -32,16 +32,16 @@ public class CardImportService : ICardImportService
         var state = await _importStateRepository.GetAsync();
         if (state == null)
         {
-            state = new ImportState(110);
+            state = new ImportState(1);
             await _importStateRepository.AddAsync(state);
             await _unitOfWork.SaveChangesAsync();
         }
 
-        var pokemonDictionary = (await _pokemonRepository.GetAllAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
+        var pokemonDictionary = (await _pokemonRepository.GetAllForImportAsync()).ToDictionary(p => p.PokedexNumber, p => p.Id);
         int page = state.LastImportedPage + 1;
-        const int pageSize = 50;
-        const int maxRetries = 3;
-        var existingIds = await _cardRepository.GetAllExternalIdsAsync();
+        const int pageSize = 250;
+        const int maxRetries = 10;
+        var existingIds = (await _cardRepository.GetAllExternalIdsAsync()).ToHashSet();
         var totalPages = int.MaxValue;
 
         while (page <= totalPages)
@@ -51,88 +51,69 @@ public class CardImportService : ICardImportService
             {
                 try
                 {
-                    Console.WriteLine($"Importando página {page}...");
+                    Console.WriteLine($"Importando página {page} - tentativa {attempt}/{maxRetries}");
                     response = await _pokemonTcg.GetCardsAsync(page, pageSize);
+                    if (response == null) throw new Exception("Resposta nula.");
+
+                    if (response.Data == null || response.Data.Count == 0)
+                        throw new Exception($"Página {page} retornou data vazia.");
+                    
                     break;
                 }
-                catch (HttpRequestException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"Erro na página {page}. Tentativa {attempt}/{maxRetries}");
+                    Console.WriteLine($"Erro na página {page}: {ex.Message}");
                     if (attempt == maxRetries) throw;
-                    await Task.Delay(5000);
+                    var delaySeconds = Math.Min(Math.Pow(2, attempt), 32);
+                    await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
                 }
             }
 
-            if (response == null || response.Data.Count == 0) break;
+            if (response == null) throw new Exception($"Não foi possível obter a página {page}.");
 
             totalPages = (int)Math.Ceiling((double)response.TotalCount / pageSize);
+
+            Console.WriteLine($"Página {page}/{totalPages} - " + $"{response.Count} cartas");
 
             var cards = new List<Card>();
             
             foreach (var cardDto in response.Data)
             {
-                if (existingIds.Contains(cardDto.Id)) continue;
+                if (!existingIds.Add(cardDto.Id)) continue;
+
+                int? pokemonId = null;
 
                 var pokedexNumber = cardDto.NationalPokedexNumbers?.FirstOrDefault();
-                if (pokedexNumber == null) continue;
-
-                if (!pokemonDictionary.TryGetValue(pokedexNumber.Value, out var pokemonId)) continue;
-
+                if (pokedexNumber != null)
+                {
+                    if (pokemonDictionary.TryGetValue(pokedexNumber.Value, out var id))
+                        pokemonId = id;
+                }
 
                 var newCard = CreateCard(cardDto, pokemonId);
                 cards.Add(newCard);
-                existingIds.Add(newCard.ExternalId);
             }
 
             await _cardRepository.AddRangeAsync(cards);
             state.Update(page);
             await _unitOfWork.SaveChangesAsync();
-            await Task.Delay(500);
+            Console.WriteLine($"Página {page}/{totalPages} - " + $"{response.Count} cartas");
             page++;
+            await Task.Delay(500);
         }
     }
 
-    private RarityCard GetRarity(string rarity)
-    {
-        return rarity?.Trim() switch
-        {
-            "Common" => RarityCard.Common,
-            "Uncommon" => RarityCard.Uncommon,
-            "Rare" => RarityCard.Rare,
-            "Rare Holo" => RarityCard.RareHolo,
-            "Rare BREAK" => RarityCard.RareBREAK,
-            "Rare Prism Star" => RarityCard.RarePrismStar,
-            "Amazing Rare" => RarityCard.AmazingRare,
-            "Rare ACE" => RarityCard.RareACE,
-            "Rare Shiny" => RarityCard.RareShiny,
-            "Rare Holo V" => RarityCard.RareHoloV,
-            "Rare Holo EX" => RarityCard.RareHoloEX,
-            "Rare Holo GX" => RarityCard.RareHoloGX,
-            "Rare Holo VMAX" => RarityCard.RareHoloVMAX,
-            "Rare Prime" => RarityCard.RarePrime,
-            "Rare Ultra" => RarityCard.RareUltra,
-            "Rare Shiny GX" => RarityCard.RareShinyGX,
-            "Rare Holo LV.X" => RarityCard.RareHoloLVX,
-            "Rare Shining" => RarityCard.RareShining,
-            "LEGEND" => RarityCard.Legend,
-            "Rare Rainbow" => RarityCard.RareRainbow,
-            "Rare Secret" => RarityCard.RareSecret,
-            "Rare Holo Star" => RarityCard.RareHoloStar,
-            "Promo" => RarityCard.Promo,
-            _ => RarityCard.Unknown
-        };
-    }
-
-    private Card CreateCard(CardResponseDto dto, int? pokemonId)
+    private Card CreateCard(CardImportResponseDto dto, int? pokemonId)
     {
         return new Card(
             externalId: dto.Id,
             pokemonId: pokemonId,
             name: dto.Name,
             cardNumber: dto.Number,
-            rarity: GetRarity(dto.Rarity),
-            imageUrl: dto.Images.Small,
+            rarity: dto.Rarity ?? "Unknown",
+            imageUrl: dto.Images.Large,
             setName: dto.Set.Name,
+            setPrintedTotal: dto.Set.PrintedTotal,
             setCode: dto.Set.Id
         );
     }

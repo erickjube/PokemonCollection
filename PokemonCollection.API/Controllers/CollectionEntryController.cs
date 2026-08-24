@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PokemonCollection.API.Header;
 using PokemonCollection.Application.DTOs.CollectionEntryDtos;
 using PokemonCollection.Application.Interfaces.Services;
+using PokemonCollection.Application.Pagination;
 
 namespace PokemonCollection.API.Controllers;
 
@@ -16,23 +18,24 @@ public class CollectionEntryController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CollectionCardResponseDto>>> GetAll()
+    public async Task<ActionResult<IEnumerable<CollectionCardResponseDto>>> GetAll([FromQuery] QueryParameters parameters)
     {
-        var collections =  await _collectionService.GetCollectionAsync();
-        return Ok(collections);
+        var metadata =  await _collectionService.GetCollectionAsync(parameters);
+        Response.AppendPaginationHeader(metadata);
+        return Ok(metadata.Data);
     }
 
-    [HttpGet("{collectionId}")]
-    public async Task<ActionResult<CollectionCardResponseDto>> GetById(int collectionId)
+    [HttpGet("{pokedexNumber}")]
+    public async Task<ActionResult<CollectionCardResponseDto>> GetById(int pokedexNumber)
     {
-        var collection = await _collectionService.GetCollectionCardByIdAsync(collectionId);
+        var collection = await _collectionService.GetCollectionCardByPokedexNumberAsync(pokedexNumber);
         return Ok(collection);
     }
 
-    [HttpPut("{pokemonId}")]
-    public async Task<ActionResult> AddCardToCollection(int pokemonId, CollectionCardRequestDto dto)
+    [HttpPut("{pokedexNumber}")]
+    public async Task<ActionResult> AddCardToCollection(int pokedexNumber, CollectionCardRequestDto dto)
     {
-        await _collectionService.SelectCardAsync(pokemonId, dto);
+        await _collectionService.SelectCardAsync(pokedexNumber, dto);
         return NoContent();
     }
 
@@ -43,10 +46,10 @@ public class CollectionEntryController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{collectionId}")]
-    public async Task<ActionResult> Delete(int collectionId)
+    [HttpDelete("{pokedexNumber}")]
+    public async Task<ActionResult> Delete(int pokedexNumber)
     {
-        await _collectionService.DeleteCardAsync(collectionId);
+        await _collectionService.DeleteCardAsync(pokedexNumber);
         return NoContent();
     }
 }

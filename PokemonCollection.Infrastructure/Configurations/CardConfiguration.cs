@@ -28,7 +28,6 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
             .IsRequired();
 
         builder.Property(c => c.Rarity)
-            .HasConversion<string>()
             .HasMaxLength(255)
             .IsRequired();
 
@@ -42,6 +41,9 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
 
         builder.Property(c => c.SetCode)
             .HasMaxLength(50)
+            .IsRequired();
+
+        builder.Property(c => c.SetPrintedTotal)
             .IsRequired();
 
         builder.HasMany(c => c.CollectionEntries)

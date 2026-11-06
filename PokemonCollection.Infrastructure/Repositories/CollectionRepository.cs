@@ -43,7 +43,7 @@ public class CollectionRepository : ICollectionRepository
         .FirstOrDefaultAsync(c => c.PokemonId == pokemonId);
     }
 
-    public async Task AddAsync(CollectionEntry? entry)
+    public async Task AddAsync(CollectionEntry entry)
     {
         await _context.CollectionEntries.AddAsync(entry);
     }

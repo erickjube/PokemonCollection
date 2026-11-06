@@ -41,7 +41,7 @@ public class CollectionEntryService : ICollectionEntryService
                 Id = c.Id,
                 CardId = c.CardId,
                 CardName = c.Card.Name,
-                PokemonName = c.Card.Pokemon.Name,
+                PokemonName = c.Card.Pokemon?.Name ?? string.Empty,
                 ImageUrl = c.Card.ImageUrl,
                 SetName = c.Card.SetName,
                 Condition = c.Condition.ToString(),
@@ -58,7 +58,7 @@ public class CollectionEntryService : ICollectionEntryService
         };
     }
 
-    public async Task<CollectionCardResponseDto> GetCollectionCardByPokedexNumberAsync(int pokedexNumber)
+    public async Task<CollectionCardResponseDto?> GetCollectionCardByPokedexNumberAsync(int pokedexNumber)
     {
         var pokemon = await _pokemonRepository.GetByPokedexNumberAsync(pokedexNumber);
         if (pokemon is null) throw new Exception("Pokemon não encontrado.");
@@ -71,7 +71,7 @@ public class CollectionEntryService : ICollectionEntryService
             Id = collection.Id,
             CardId = collection.CardId,
             CardName = collection.Card.Name,
-            PokemonName = collection.Card.Pokemon.Name,
+            PokemonName = collection.Card.Pokemon?.Name ?? string.Empty,
             ImageUrl = collection.Card.ImageUrl,
             SetName = collection.Card.SetName,
             Condition = collection.Condition.ToString(),
@@ -152,7 +152,7 @@ public class CollectionEntryService : ICollectionEntryService
         await _unitOfWork.SaveChangesAsync();
     }
 
-    private static T ParseEnum<T>(string value) where T : struct, Enum
+    private static T ParseEnum<T>(string? value) where T : struct, Enum
     {
         if (Enum.TryParse<T>(value, true, out var result))
             return result;

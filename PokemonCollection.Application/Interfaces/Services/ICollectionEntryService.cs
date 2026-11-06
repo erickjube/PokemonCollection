@@ -7,7 +7,7 @@ namespace PokemonCollection.Application.Interfaces.Services;
 public interface ICollectionEntryService
 {
     Task<PagedList<CollectionCardResponseDto>> GetCollectionAsync(QueryParameters parameters);
-    Task<CollectionCardResponseDto> GetCollectionCardByPokedexNumberAsync(int pokedexNumber);
+    Task<CollectionCardResponseDto?> GetCollectionCardByPokedexNumberAsync(int pokedexNumber);
     Task SelectCardAsync(int pokedexNumber, CollectionCardRequestDto dto);
     Task UpdateCardAsync(int collectionId, CollectionCardUpdateRequestDto dto);
     Task DeleteCardAsync(int pokemonId);

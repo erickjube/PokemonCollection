@@ -21,19 +21,19 @@ public class PokemonRepository : IPokemonRepository
     {
         var query = _context.Pokemons.AsQueryable();
 
-        if (!string.IsNullOrWhiteSpace(filter?.Search))
+        if (!string.IsNullOrWhiteSpace(filter.Search))
             query = query.Where(p => p.Name.Contains(filter.Search));
 
-        if (!string.IsNullOrWhiteSpace(filter?.Generation))
+        if (!string.IsNullOrWhiteSpace(filter.Generation))
             query = query.Where(p => p.Generation.ToString().Contains(filter.Generation));
 
-        if (!string.IsNullOrWhiteSpace(filter?.Type))
+        if (!string.IsNullOrWhiteSpace(filter.Type))
         {
             query = query.Where(p => p.PrimaryType.ToString().Contains(filter.Type) ||
                 (p.SecondaryType.HasValue && p.SecondaryType.Value.ToString().Contains(filter.Type)));
         }
         
-        if (!string.IsNullOrWhiteSpace(filter?.Region))
+        if (!string.IsNullOrWhiteSpace(filter.Region))
             query = query.Where(p => p.Region.ToString().Contains(filter.Region));
 
         switch (filter.SortBy)
